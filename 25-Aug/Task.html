@@ -1,0 +1,487 @@
+<html>
+    <head>
+        <style>
+            fieldset {
+              background-color: #eeeeee;
+            }
+            
+            legend {
+              background-color: gray;
+              color: white;
+              padding: 5px 10px;
+            }
+            .error
+                {
+                 color: red;
+                 font-style: italic;
+                }
+            input {
+              margin: 5px;
+            }
+            textarea
+            {
+                margin: 5px;
+            }
+            select
+            {
+                margin: 5px;
+            }
+            .btn
+            {
+                width: 16%;
+    height: 44px;
+    color: white;
+    border-radius: 21px;
+    font-size: 17px;
+    margin: 4px;
+    background-color: darkolivegreen;
+
+            }
+            </style>
+        
+        <link rel="stylesheet" type="text/css" href="chosen.css">
+        <link rel="stylesheet" href="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+       
+        <link href="./css/lightbox.css" rel="stylesheet" />
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>  
+        <script src="https://www.jonthornton.com/jquery-timepicker/jquery.timepicker.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+
+        <script>
+            
+        
+            $(document).ready(function()
+            {
+
+                lightbox.option({
+      'resizeDuration': 2000,
+      'wrapAround': true
+    })
+
+    // $.validator.setDefaults({
+    //             ignore: ":hidden:not(select)"
+    //         });
+           
+            $('#onselectExample').timepicker();
+            $('#onselectExample').on('changeTime', function() {
+                $('#onselectTarget').text($(this).val());
+            });
+
+                $('#myTable').DataTable(
+                    {
+                        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]}
+                );
+                $("#myfrm").validate({
+                    ignore: [],
+                    rules: {
+				firstname: {
+                    required:true,
+                    minlength:3,
+                    maxlength:10
+                },
+                dob:
+                {
+                required:true
+                },
+				email:
+                {
+                required:true
+                },
+                ckplot: {
+                    required: function() 
+                    {
+                    CKEDITOR.instances.ckplot.updateElement();
+                    }
+                    },
+                    ckplot1: {
+                    required: function() 
+                    {
+                    CKEDITOR.instances.ckplot1.updateElement();
+                    }
+                    },
+
+                usercity: {
+                        required:true
+                    },
+                    usercity1: {
+                        required:true
+                    },
+
+                mobile:
+                {
+                    required:true,
+                 minlength:10,
+                 maxlength:10
+                },
+             
+                onselectExample:
+                {
+                    required:true
+                },
+                textarea:
+                {
+                    required:true
+                },
+                date: {
+        required: true,
+        date: true
+     },
+			},
+			messages: {
+
+                
+
+				firstname: {
+                    required:"Please Enter the Name",
+                    minlength:'Name is Least greater than 3 words',
+                    maxlength:'Name is Under 10 words'
+                },
+				mobile: {
+                    required:"Enter the Mobile No.",
+                    minlength:"Number is Missing Please Check",
+                    maxlength:"Number is Invalid Please Check"
+                },
+                dob:
+                {
+                required:"Please Select Date of Birth"
+                },
+
+                ckplot:"Please Enter the Text",
+                ckplot1:"Please Enter the Text",
+                usercity: {
+                        required: "Please select a city"
+                    },
+                    usercity1: {
+                        required: "Please select Hobbies"
+                    },
+                onselectExample:
+                {
+                    required:"Please Enter Time"
+                },
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+                date:{
+         required: "Date is required",
+         date:"enter date only"
+       },
+       textarea:
+       {
+           required:"Please Enter Something"
+       },
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+				},
+				email: "Please enter a valid email address",
+                age: {
+					required: "Please Enter Age",
+					min: "Only Maximum 18 is Allowed",
+                    max: "Only Allowed below 100"
+					
+				},
+                
+			},
+            errorPlacement: function(error, element) 
+                {
+                    if (element.attr("name") == "ckplot") 
+                   {
+                    error.insertBefore("textarea#ckplot");
+                    } else {
+                    error.insertAfter(element);
+                    }
+                },
+                errorPlacement: function(error, element) 
+                {
+                    if (element.attr("name") == "ckplot1") 
+                   {
+                    error.insertBefore("textarea#ckplot1");
+                    } else {
+                    error.insertBefore(element);
+                    }
+                }
+            
+                });
+                $( ".startdate" ).datepicker({
+    dateFormat: 'dd/mm/y',
+    yearRange: '1990:2030',
+    changeMonth: true,
+    changeYear: true
+});
+
+                var maxchars = 160;
+                
+$('textarea').keyup(function () {
+    var tlength = $(this).val().length;
+    
+    $(this).val($(this).val().substring(0, maxchars));
+    var tlength = $(this).val().length;
+    remain = maxchars - parseInt(tlength);
+    $('#remain').text(remain);          
+    $('#remain1').text(tlength);
+}); 
+$('select').chosen({ width:'200px' });
+
+// CKEDITOR.replace("ckplot");
+CKEDITOR.replace('ckplot', {
+    toolbar: [{
+                name: 'clipboard',
+                items: ['Copy', 'Paste', '-', 'Undo', 'Redo']
+            }, {
+                name: 'basicstyles',
+                items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']
+            }, {
+                name: 'paragraph',
+                items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-']
+            }, {
+                name: 'links',
+                items: ['Link', 'Unlink', 'Anchor']
+            },
+            '/', {
+                name: 'tools',
+                items: ['-', 'About']
+            }
+
+    ]
+    });
+CKEDITOR.replace("ckplot1");
+
+    
+    
+
+            })
+            
+           
+          
+            
+            </script>
+            
+        <title>Task</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>My Form:</legend>
+        <form id="myfrm" >
+            <center>
+        <table width="50%" >
+            <tr>
+       <td><label for="firstname">Enter Name</label></td>
+       <td><input id="firstname" name="firstname" type="text"></td>
+    </tr>
+    <tr>
+        <td><label for="mobile">Mobile No</label></td>
+        <td><input id="mobile" name="mobile" type="number"></td>
+    </tr>
+    <tr>
+        <td><label for="email">Email</label></td>
+        <td><input id="email" name="email" type="email"></td>
+    </tr>
+    <tr>
+        <td><label for="Textarea">TextArea</label></td>
+        <td><textarea rows="3" cols="40" id="textarea" name="textarea"></textarea><span id="remain" style="align-items: right;"> 160</span> remaining <span id="remain1">0</span> words</td>
+    </tr>
+    <tr>
+        <td><label for="usercity">City</label></td>
+        <td>
+            <select name="usercity" id="usercity" >
+                <option value="" selected="" disabled="">Select City</option>
+                <option value="Indore">Indore</option>
+                <option value="Bhopal">Bhopal</option>
+                <option value="Ahemdabad">Ahemdabad</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+               </select>
+               
+        </td>
+        <tr>
+            <td><label for="Textarea">About Me</label></td>
+            <td><textarea id="ckplot" name="ckplot"></textarea></td>
+        </tr>   
+    <tr>
+        <td><label for="DOB">DOB</label></td>
+        <td><input type="text" class="startdate" size="20" id="dob" name="dob"/></td>
+    </tr>
+    <tr>
+        <td><label for="onselectExample">Birth</label></td>
+        <td><input type="text" id="onselectExample" name="onselectExample" class="onselectExample"></td>
+    </tr>
+    <tr>
+        <td><label for="hobbies">Hobbies</label></td>
+        <td>
+            <select name="usercity1"  multiple >
+                <option value="">Select Hobbies</option>
+                <option value="ck">Cricket</option>
+                <option value="dn">Dancing</option>
+                <option value="fb">Football</option>
+                <option value="tl">Travelling</option>
+                <option value="sg">Singing</option>
+                <option value="sw">Swimming</option>
+                <option value="sg">Watching Webseries</option>
+                <option value="sw">Gaming</option>
+               </select>
+        </td>
+           
+    </tr>
+    <tr>
+        <td>Introduction</td>
+        <td><textarea id="ckplot1" name="ckplot1"></textarea></td>
+    </tr>
+    <tr>
+        <td>Gallery</td>
+        <td>
+            <a href="images/grace.jpg" data-lightbox="roadtrip" data-title="My caption"><img src="./images/grace.jpg" height="200px" width="300px"></a>
+            <a href="images/honda1.jpg" data-lightbox="roadtrip"><img src="./images/honda1.jpg" height="200px" width="300px"></a>
+            <a href="images/honda2.jpg" data-lightbox="roadtrip"><img src="./images/honda2.jpg" height="200px" width="300px"></a>
+            <a href="images/honda3.jpg" data-lightbox="roadtrip"><img src="./images/honda3.jpg" height="200px" width="300px"></a>
+            <a href="images/honda4.jpg" data-lightbox="roadtrip"><img src="./images/honda4.jpg" height="200px" width="300px"></a>
+            <a href="images/amaze.jpg" data-lightbox="roadtrip"><img src="./images/amaze.jpg" height="200px" width="300px"></a>
+
+
+
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="center"><input type="submit" class="btn" value="Submit"></td>
+    </tr>
+    
+        </table>    
+    </center>
+    </form>
+    </fieldset>
+    <table id="myTable" class="display nowrap" width="100%" border="1px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Aman</td>
+                <td>aman11@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Rohan</td>
+                <td>rohan@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Rahul</td>
+                <td>rahl1@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Shubham</td>
+                <td>shubh@gmail.com</td>
+                <td>Bhopal</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Mahima</td>
+                <td>mahima11@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Heena</td>
+                <td>heena12@gmail.com</td>
+                <td>Bhopal</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Abhishek</td>
+                <td>abhi122gmail.com</td>
+                <td>Ujjain</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Arpan</td>
+                <td>arpanar@gmail.com</td>
+                <td>Bhopal</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Charchit</td>
+                <td>charu18@gmail.com</td>
+                <td>Bhopal</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Sourabh</td>
+                <td>Sourabhraj@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Sunil</td>
+                <td>sunilsahu@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Tanishka</td>
+                <td>tanishkat@gmail.com</td>
+                <td>Indore</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Ayush</td>
+                <td>ayushg@gmail.com</td>
+                <td>Bhopal</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+    <script src="chosen.jquery.js"></script>
+
+
+    
+    <script src="./js/lightbox.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+    <script src="http://lcoawebservices.com/assets/ckeditor/ckeditor.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+
+
+    </body>
+</html>

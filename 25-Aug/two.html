@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>two</title>
+    <script>
+        var val = 0;
+        class Calc {
+            
+            constructor(n) {
+                val = n;
+            }
+            add(n) {
+                val+=n;
+                return this;
+            }
+            sub(n) {
+                val-=n;
+                return this;
+            }
+            mul(n) {
+                val*= n;
+                return this;
+            }
+            div(n) {
+                val/= n;
+                return this;
+            }
+            toString() {
+                return val;
+            }
+        }
+
+
+        var obj = new Calc(10).add(5).mul(2).div(3).sub(2);
+        alert(obj);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

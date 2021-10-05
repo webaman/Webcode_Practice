@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+
+             var arr= [];
+             var size=prompt("Enter the size");
+             var i;
+             var flag=0;
+             var x=20;
+             for(i=0; i<size; i++)
+             {
+                 arr[i]=prompt("Enter the Elements " + (i+1));
+
+             }
+
+             for(i=0; i<size; i++)
+             {
+                 if(arr[i]==x)
+             {
+                 document.write("Found Value " +arr[i])
+                 flag=1;
+                 break;
+             }
+             }
+             if(flag==0)
+             {
+            document.write("Not found")
+             }
+        </script>
+        <title>Linear
+
+        </title>
+        
+    </head>
+<body>
+
+</body>
+    </html>

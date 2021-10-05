@@ -1,0 +1,196 @@
+<html>
+<body>
+
+<script> 
+ 
+function validateform(){  
+var fname=document.myform.name.value; 
+var lname=document.myform.ln.value;
+var email=document.myform.em.value;
+var date=document.myform.dt.value;
+var city=document.myform.city.value;
+var state=document.myform.state.value;
+// var password=document.myform.password.value;  
+  
+if (fname==null || fname==""){  
+    document.getElementById('mylocation').innerText="Please Insert Something Here"
+  return false;
+} 
+if(fname == 0 || fname > 0)
+{
+    document.getElementById('mylocation').innerText="Contain only Alphabetic value";
+    return false;
+}
+
+if (lname==null || lname==""){  
+    document.getElementById('mylocation1').innerText="Please Insert Something Here"
+  return false;
+} 
+if(lname == 0 || lname > 0)
+{
+    document.getElementById('mylocation1').innerText="Contain only Alphabetic value";
+    return false;
+}
+if (date==null || date==""){  
+    document.getElementById('mylocation5').innerText="Enter your DOB"
+  return false;
+}
+
+if (city==null || city==""){  
+    document.getElementById('mylocation3').innerText="Please Select City"
+  return false;
+}
+if (state==null || state==""){  
+    document.getElementById('mylocation4').innerText="Please Select State"
+  return false;
+} 
+
+// }else if(password.length<6){  
+//   alert("Password must be at least 6 characters long.");  
+//   return false;  
+    
+}
+
+ 
+  
+</script>
+<center>
+   
+
+<form name="myform" method="post" onsubmit="return validateform()" >  
+    
+    <table width="60%">
+        <tr>
+    <td>FirstName:</td> 
+    <td><input type="text" name="name"></td> 
+    <td><span id="mylocation"></span></td>
+</tr>
+    
+    <tr>
+<td>
+    LastName:
+</td> 
+<td><input type="text" name="ln">
+</td> 
+    <td><span id="mylocation1"></span></td>
+</tr>
+    
+    <tr>
+<td>
+    Email:
+</td> 
+<td><input type="email" name="em"> </td>
+   <td> <span id="mylocation2"></span></td>
+</tr>
+
+    <tr>
+        <td>DOB:</td> 
+        <td><input type="date" name="dt"></td> 
+    <td><span id="mylocation5"></span></td>
+</tr>
+    <!-- Password<input type="password" value="" name="userPass" onkeyup="validate()">
+    Strength:<span id="mylocation3">no strength</span> -->
+   <tr>
+       <td> City</td>
+       <td><select name="city">
+    <option value="">Select City</option>
+    <option value="adi">Adilabad</option>
+    <option value="agra">Agra</option>
+    <option value="ahm">Ahmedabad</option>
+    <option value="ahn">Ahmednagar</option>
+    <option value="ajm">Ajmer</option>
+    <option value="ali">Aligarh</option>
+    <option value="aliraj">Alirajpur</option>
+    <option value="allah">Allahabad</option>
+    <option value="alm">Almora</option>
+    <option value="amb">Ambala</option>
+    <option value="bpl">Bhopal</option>
+    <option value="bgl">Bagalkot</option>
+    <option value="bala">Balaghat</option>
+    <option value="bpur">Burhanpur</option>
+    <option value="dws">Dewas</option>
+    <option value="dhd">Dahod</option>
+    <option value="dmh">Damoh</option>
+    <option value="drg">Durg</option>
+    <option value="fbd">Faridabad</option>
+    <option value="fpur">Fatehpur</option>
+    <option value="hbd">Hoshangad</option>
+    <option value="hpur">Hastinapur</option>
+    <option value="ind">Indore</option>
+    <option value="itwa">Itawa</option>
+    <option value="jbl">Jabalpur</option>
+    <option value="jpur">Jaipur</option>
+    <option value="jodh">Jodhpur</option>
+    <option value="kpur">Kanpur</option>
+    <option value="kly">Kalyan</option>
+    <option value="lpur">Lalitpur</option>
+    <option value="msor">Mandsor</option>
+    <option value="msor">Mumbai</option>
+    <option value="pune">Pune</option>
+    <option value="raipur">Raipur</option>
+    <option value="rat">Ratlam</option>
+    <option value="raj">Rajkot</option>
+    <option value="surat">Surat</option>
+    <option value="tgad">Tikamgad</option>
+    <option value="ujj">Ujjain</option>
+                </select></td>
+                <td>
+                <span id="mylocation3"></span>
+            </td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td><select name="state">
+                <option value="">Select State</option>
+                       <option value="Andhra Pradesh">Andhra Pradesh</option>
+                       <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                       <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                       <option value="Assam">Assam</option>
+                       <option value="Bihar">Bihar</option>
+                       <option value="Chandigarh">Chandigarh</option>
+                       <option value="Chhattisgarh">Chhattisgarh</option>
+                       <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                       <option value="Daman and Diu">Daman and Diu</option>
+                       <option value="Delhi">Delhi</option>
+                       <option value="Lakshadweep">Lakshadweep</option>
+                       <option value="Puducherry">Puducherry</option>
+                       <option value="Goa">Goa</option>
+                       <option value="Gujarat">Gujarat</option>
+                       <option value="Haryana">Haryana</option>
+                       <option value="Himachal Pradesh">Himachal Pradesh</option>
+                       <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                       <option value="Jharkhand">Jharkhand</option>
+                       <option value="Karnataka">Karnataka</option>
+                       <option value="Kerala">Kerala</option>
+                       <option value="Madhya Pradesh">Madhya Pradesh</option>
+                       <option value="Maharashtra">Maharashtra</option>
+                       <option value="Manipur">Manipur</option>
+                       <option value="Meghalaya">Meghalaya</option>
+                       <option value="Mizoram">Mizoram</option>
+                       <option value="Nagaland">Nagaland</option>
+                       <option value="Odisha">Odisha</option>
+                       <option value="Punjab">Punjab</option>
+                       <option value="Rajasthan">Rajasthan</option>
+                       <option value="Sikkim">Sikkim</option>
+                       <option value="Tamil Nadu">Tamil Nadu</option>
+                       <option value="Telangana">Telangana</option>
+                       <option value="Tripura">Tripura</option>
+                       <option value="Uttar Pradesh">Uttar Pradesh</option>
+                       <option value="Uttarakhand">Uttarakhand</option>
+                       <option value="West Bengal">West Bengal</option>
+                    </select></td>
+                    <td>
+                    <span id="mylocation4"></span>
+                </td></tr>
+    <!-- Password: <input type="password" name="password"><br/>   -->
+    <tr>
+        <td></td>
+        <td>
+    <input type="submit" value="Submit">
+</td>
+</tr>
+</table>
+    </form> 
+</center>
+</body>
+</html>

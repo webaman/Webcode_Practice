@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Data Text</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function () {
+$("#dataload").click(function (e) {
+$.ajax({
+url: "am.txt",
+success: function (result,status,xhr) {
+$("#myData").html(result);
+}
+});
+});
+});
+</script>
+</head>
+<body>
+<button id="dataload">Load Data</button>
+<div id="myData"></div>
+</body>
+</html>

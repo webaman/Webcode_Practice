@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+
+            /* Program to Calculate to print starting and ending numbers */
+            
+             var start= parseInt(prompt("Enter Starting Number"));
+             var end= parseInt(prompt("Enter Ending Number"));
+             
+           if(start>end)
+           {
+               
+            if(start % 10 == 0)
+               {
+                var temp=start / 10;
+
+                   for(var i=start; i>=end; i=i-temp)
+                   {
+                       document.write(i + "<br>");
+                   }
+               }
+           }
+           else
+           {
+               document.write("No is not greater");
+           }
+            
+        </script>
+        <title>Prog24</title>
+    </head>
+</html> 

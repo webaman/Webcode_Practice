@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./select2.min.css">
+    <link rel="stylesheet" href="./select2.full.min.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./daterangepicker.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>File</title>
+  </head>
+  <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand text-dark" href="#">Menu</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link " href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="form.html">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="table.html">Table</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+          </div>
+      </div>
+          <div class="row mt-4">
+          <div class="mx-auto card" style="width: 40rem;">
+            <div class="card-header">
+              <h3 class="card-title">Sign Form</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="card-body">
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">FirstName</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="FirstName">
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">LastName</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="LastName">
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Gender</label>
+                  <div class="col-sm-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                  </label>
+                </div>
+                </div>
+                </div>
+
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+                  <div class="col-sm-6">
+                    <input id="datepicker" width="276" />
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">City</label>
+                  <div class="col-sm-6">
+                  <select class="form-control select2" data-placeholder="Select City" style="width: 100%;">
+                    <option selected="selected">Indore</option>
+                    <option>Ujjain</option>
+                    <option>Ahemdabad</option>
+                    <option>Bhopal</option>
+                    <option>Surat</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">State</label>
+                  <div class="col-sm-6">
+                  <select class="form-control select2" data-placeholder="Select State" style="width: 100%;">
+                    <option selected="selected">Madhya Pradesh</option>
+                    <option>Maharastra</option>
+                    <option>Gujarat</option>
+                    <option>Uttar Pradesh</option>
+                    <option>Delhi</option>
+                    <option>Haryana</option>
+                    <option>Punjab</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">TextBox</label>
+                  <div class="col-sm-6">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+               
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Hobbies</label>
+                  <div class="col-sm-6">
+                  <select class="select2" multiple="multiple" data-placeholder="Select Hobbies" style="width: 100%;">
+                    <option>Cricket</option>
+                    <option>Football</option>
+                    <option>Singing</option>
+                    <option>Dancing</option>
+                    <option>Skipping</option>
+                    <option>Webseries</option>
+                    <option>PUBG</option>
+                  </select>
+                </div>
+                </div>  
+              <!-- /.card-body -->
+              <div class="card-footer mt-4">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Signup</button>
+              </div>
+              <!-- /.card-footer -->
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Menu</h2>
+            <div>
+                <a href="#">Home</a><br>
+                <a href="#">About</a><br>
+                <a href="#">Contact</a><br>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <div class="col-md-3"><h2>About us</h2>
+            <div>
+                et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusitatibus 
+            </div></div>
+        <div class="col-md-3">
+                <h2>Terms</h2>
+            <div>
+                et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusitatibus 
+            </div></div>
+        <div class="col-md-3"><h2>Contact</h2>
+            
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-12 mt-4">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Send</button>
+              </div>
+        </div>
+      </div>
+      <div class="row mt-4 ">
+        <div class="col-md-12 text-center">Copyright 2021 &copy; amandummy.com | All Rights Reserved</div>
+        </div>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    <script src="./select2.full.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="./daterangepicker.js"></script>
+    <script>
+      $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+  })
+  $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+  </body>
+</html> 

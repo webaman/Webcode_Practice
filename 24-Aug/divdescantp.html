@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('div > p').css("background","yellow")
+		});
+	</script>
+</head>
+<body>
+	<h1>CSS Selector: Parent Child Relationship </h1>
+	<div>
+		<p>Paragraph 1</p>
+        <p>Paragraph Added</p>
+		<div>
+			<code>
+				<p>Paragraph 2</p>
+			</code>
+		</div>
+	</div>
+	<p>Paragraph 3</p>
+	<div>
+		<p>Paragraph 4</p>
+	</div>
+</body>
+</html>

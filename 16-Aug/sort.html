@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script>
+            var arr=[];
+            var arr1=[];
+            var i;
+            var j=0;
+            var temp=[];
+            var temp1=[];
+            var size=prompt("Enter the size");
+            for(i=0; i<size; i++)
+            {
+                arr[i]=prompt("Enter the names " + (i+1));
+            }
+            
+            for(i=0; i<size; i++)
+            {
+                arr1[j]=arr[i].charAt(0);
+                j++;
+            }
+            document.write("Before Sorting <br>");
+            for(i=0; i<size; i++)
+            {
+                document.write(arr[i]+ " " );
+            }
+            for(i=0; i<size; i++)
+            {
+                for(k=0; k<=(size-i)-1; k++)
+                {
+                  if(arr1[k]>arr1[k+1])
+                  {
+                      temp[k]=arr1[k];
+                      arr1[k]=arr1[k+1];
+                      arr1[k+1]=temp[k];
+
+                      temp1[k]=arr[k]
+                      arr[k]=arr[k+1];
+                      arr[k+1]=temp1[k];
+                  } 
+                }
+            }
+            document.write("<br> After Sorting <br>");
+            for(i=0; i<size; i++)
+            {
+                document.write(arr[i] + " ");
+            }
+        </script>
+        <title>Sorting</title>
+    </head>
+    <body>
+
+    </body>
+</html>

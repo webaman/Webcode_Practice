@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <link rel="Stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+      
+        <style>
+            .error
+            {
+                color: red;
+                font-style: italic;
+            }
+        </style>
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>  
+
+                <script>
+                    $(document).ready(function()
+                    {
+                        $("#frm").validate();
+                         $('#myTable').DataTable();
+                    
+                    })
+                    
+                    </script>
+        <title>Table Or Demo</title>
+    </head>
+    <body>
+        <form id="frm">
+            Enter First Name: <input type="text" name="fname" required><br>
+            Enter Last Name: <input type="text" name="lname" required><br>
+            Enter Email Add: <input type="email" name="em" required><br>
+            Enter Mobile No. <input type="number" name="mno" required><br>
+            <input type="submit" value="Submit">
+            </form>
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Aman</td>
+                        <td>aman11@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Rohan</td>
+                        <td>rohan@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Rahul</td>
+                        <td>rahl1@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Shubham</td>
+                        <td>shubh@gmail.com</td>
+                        <td>Bhopal</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Mahima</td>
+                        <td>mahima11@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Heena</td>
+                        <td>heena12@gmail.com</td>
+                        <td>Bhopal</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Abhishek</td>
+                        <td>abhi122gmail.com</td>
+                        <td>Ujjain</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Arpan</td>
+                        <td>arpanar@gmail.com</td>
+                        <td>Bhopal</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Charchit</td>
+                        <td>charu18@gmail.com</td>
+                        <td>Bhopal</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Sourabh</td>
+                        <td>Sourabhraj@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Sunil</td>
+                        <td>sunilsahu@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Tanishka</td>
+                        <td>tanishkat@gmail.com</td>
+                        <td>Indore</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Ayush</td>
+                        <td>ayushg@gmail.com</td>
+                        <td>Bhopal</td>
+                    </tr>
+    
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>City</th>
+                    </tr>
+                </tfoot>
+            </table>
+    </body>
+</html>

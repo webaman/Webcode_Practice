@@ -1,0 +1,19 @@
+<html>
+<head>
+<script type="text/javascript">
+function dateprint()
+{
+    var dd,mm,yy;
+var d=new Date();
+
+dd=d.getDate();
+mm=d.getMonth()+1;
+yy=d.getFullYear();
+document.write(dd+"-"+mm+"-"+yy+"<br>");
+document.write("Date is- " +d);
+}
+</script>
+</head>
+<body onLoad="dateprint()">
+</body>
+</html>

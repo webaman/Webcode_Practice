@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+    /* Program to Calculate the marks and after that shows the gardes according to marks */
+            var sum=0;
+          
+            for(var i=1; i<=5; i++)
+            {
+                var c = parseInt(prompt("Enter Numbers"));
+                sum=sum+c;
+            }
+
+            per=sum/5;
+             
+            if(per>=90)
+            {
+                document.write("Grade A+ " + parseFloat(per))
+            }
+            else
+            if(per>=80 && per<90)
+            {
+                document.write("Grade A  " + parseFloat(per)) 
+            }
+            else
+            if(per>=70 && per<80)
+            {
+                document.write("Grade B  " + parseFloat(per)) 
+            }
+            else
+            if(per>=60 && per<70)
+            {
+                document.write("Grade C  " + parseFloat(per)) 
+            }
+            else
+            if(per>=50 && per<60)
+            {
+                document.write("Grade D " + parseFloat(per)) 
+            }
+            else
+            if(per<50)
+            {
+                document.write("Grade F " + parseFloat(per))  
+            }
+            
+        </script>
+        <title>Prog23</title>
+    </head>
+</html> 

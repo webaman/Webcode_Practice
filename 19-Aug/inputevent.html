@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+    <form name="frm">
+<input type="text" id="demo1"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo2"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo3" name="nm"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;" ><br>
+<input type="text" name="tid" onfocus="myFunction()"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo5" name="nm2"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo6"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo7"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<p id="msg"></p>
+<input type="text" id="demo8" name="nm3"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo9"  style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;"><br>
+<input type="text" id="demo10" style="background-color: grey; color: white; height: 30px; width: 300px; margin: 20px;">
+</form>
+</center>
+
+<script>
+document.getElementById("demo1").addEventListener("click", function() {
+  this.style.backgroundColor = "red";
+  this.style.color = "white";
+  this.style.height="30px";
+  this.style.width="300px";
+  this.style.margin="20px"
+});
+document.getElementById("demo1").addEventListener("mouseout", function() {
+  this.style.backgroundColor = "grey";
+  this.style.color = "black";
+  this.style.height="30px";
+  this.style.width="300px"
+  this.style.margin="20px"
+});
+
+document.getElementById("demo2").addEventListener("mouseover", function() {
+  this.style.fontSize = "30px";
+  this.style.backgroundColor = "grey";
+  this.style.color = "white";
+  this.style.borderRadius="20px"
+
+});
+document.getElementById("demo2").addEventListener("mouseout", function() {
+  this.style.fontSize = "30px";
+  this.style.backgroundColor = "grey";
+  this.style.color = "white";
+  this.style.borderRadius="0px"
+
+});
+document.getElementById("demo3").addEventListener("keyup",function()
+{
+ frm.nm.value=frm.nm.value.toUpperCase();
+});
+function myFunction() {
+frm.tid.style.backgroundColor="blue";
+frm.tid.style.width="300px";
+frm.tid.style.color="white"
+}
+document.getElementById("demo5").addEventListener("blur", function() {
+    frm.nm2.value=frm.nm2.value.toUpperCase();
+frm.nm2.style.backgroundColor="red";
+frm.nm2.style.color="yellow";
+});
+
+
+document.getElementById("demo6").addEventListener("click", function() {
+  alert("Your Cursor is on 6 Input")
+});
+
+document.getElementById("demo7").addEventListener("mouseover", function() {
+  document.getElementById("msg").innerHTML="Mouse Over"    
+});
+document.getElementById("demo7").addEventListener("mouseout", function() {
+  document.getElementById("msg").innerHTML="Mouse out"    
+});
+
+document.getElementById("demo8").addEventListener("keydown",function()
+{
+ frm.nm3.value=frm.nm3.value.toLowerCase();
+});
+document.getElementById("demo9").addEventListener("mouseover", function() {
+  this.style.fontSize = "30px";
+  this.style.backgroundColor = "grey";
+  this.style.color = "white";
+  
+  this.style.borderStyle="dotted"
+  this.style.borderColor="black"
+
+});
+
+
+
+</script>
+
+</body>
+</html>

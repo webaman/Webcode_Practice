@@ -1,0 +1,38 @@
+<html>
+<body>
+<script type="text/javascript">
+var arr=[];
+var arr1=[];
+var arr2=[];
+var i=0;
+
+for(i=0; i<5; i++)
+{
+    arr[i]=prompt("Enter the Numbers of Array-1");
+}
+
+for(i=0; i<3; i++)
+{
+    arr1[i]=prompt("Enter the Numbers of Array-2");
+}
+
+for(i=0; i<3; i++)
+{
+    arr2[i]=prompt("Enter the Numbers of Array-3");
+}
+
+document.write(arr.reverse()+"<br>");
+document.write(arr.sort()+"<br>");
+document.write(arr.sort().reverse()+"<br>");
+document.write(arr.concat(arr1)+"<br>");            
+document.write(arr.indexOf("2")+"<br>");
+document.write(arr2.lastIndexOf("5")+"<br>");
+document.write(arr.join('-') +"<br>");
+document.write(arr1.push(100)+"<br>");
+document.write(arr1 +"<br>");
+document.write(arr1.pop()+"<br>");
+document.write(arr1 +"<br>");
+document.write(arr.fill("Aman")+"<br>");
+</script>
+</body>
+</html>

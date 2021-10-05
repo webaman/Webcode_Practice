@@ -1,0 +1,28 @@
+<html>
+    <head>
+ 
+        <title>Event Stop 2</title>
+    </head>
+    <body>
+        <div id="parent">
+        <input type="button" id="child" value="Submit">
+    </div> 
+    <script>
+         
+            
+        document.getElementById("parent").addEventListener("click", function()
+        {
+            this.style.backgroundColor="pink"
+            this.style.height="300px"
+            this.style.height="200px"
+        })
+        document.getElementById("child").addEventListener("click", function(event)
+        {
+            event.stopPropagation();
+            console.log("You Pressed Button")
+    
+        })
+     
+</script>
+    </body>
+</html>

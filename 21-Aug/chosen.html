@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://harvesthq.github.io/chosen/docsupport/style.css">
+    <link rel="stylesheet" href="https://harvesthq.github.io/chosen/docsupport/prism.css">
+    <link rel="stylesheet" href="https://harvesthq.github.io/chosen/chosen.css">
+
+</head>
+
+<body>
+ 
+        <div id="container">
+            <div class="side-by-side clearfix">
+                <div>
+                    <em>Language</em>
+                    <select data-placeholder="Choose Language..." class="select" tabindex="1">
+                <option value="">Select Language</option>
+            <option value="php">PHP</option>
+            <option value="android">Android</option>
+            <option value="py">Python</option>
+            <option value="js">JavaScript</option>
+            <option value="ajs">AngularJS</option>
+            <option value="rjs">ReactJS</option>
+            <option value="vjs">Vanilla JS</option>
+            <option value="jva">Java</option>
+            <option value="c">C</option>
+            <option value="cpp">C++</option>
+              </select>
+                </div>
+                <div>
+                    <em>Into This</em>
+                    <select data-placeholder="Choose Languages..." class="chosen-select" tabindex="2">
+                        <option value=""></option>
+                        <option value="php">PHP</option>
+                        <option value="android">Android</option>
+                        <option value="py">Python</option>
+                        <option value="js">JavaScript</option>
+                        <option value="ajs">AngularJS</option>
+                        <option value="rjs">ReactJS</option>
+                        <option value="vjs">Vanilla JS</option>
+                        <option value="jva">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+              </select>
+                </div>
+            </div>
+
+            <h2><a name="multiple-select" class="anchor" href="#multiple-select">Multiple Select</a></h2>
+            <div class="side-by-side clearfix">
+                <div>
+                    <em>Turns This</em>
+                    <select data-placeholder="Choose a Language..." class="select" multiple tabindex="3">
+                        <option value=""></option>
+                        <option value="php">PHP</option>
+                        <option value="android">Android</option>
+                        <option value="py">Python</option>
+                        <option value="js">JavaScript</option>
+                        <option value="ajs">AngularJS</option>
+                        <option value="rjs">ReactJS</option>
+                        <option value="vjs">Vanilla JS</option>
+                        <option value="jva">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+          </select>
+                </div>
+                <div>
+                    <em>Into This</em>
+                    <select data-placeholder="Choose a Language..." class="chosen-select" multiple tabindex="4">
+                        <option value=""></option>
+                        <option value="php">PHP</option>
+                        <option value="android">Android</option>
+                        <option value="py">Python</option>
+                        <option value="js">JavaScript</option>
+                        <option value="ajs">AngularJS</option>
+                        <option value="rjs">ReactJS</option>
+                        <option value="vjs">Vanilla JS</option>
+                        <option value="jva">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- <h2><a name="selected-and-disabled-support" class="anchor" href="#selected-and-disabled-support">Selected and Disabled Support</a></h2>
+            <div class="side-by-side clearfix">
+                <p>Chosen automatically highlights selected options and removes disabled options.</p>
+                <div>
+                    <em>Single Select</em>
+                    <select data-placeholder="Your Favorite Type of Bear" class="chosen-select" tabindex="7">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option selected>Sloth Bear</option>
+                        <option disabled>Sun Bear</option>
+                        <option>Polar Bear</option>
+                        <option disabled>Spectacled Bear</option>
+                    </select>
+                </div>
+                <div>
+                    <em>Multiple Select</em>
+                    <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select" tabindex="8">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option selected>Sloth Bear</option>
+                        <option disabled>Sun Bear</option>
+                        <option selected>Polar Bear</option>
+                        <option disabled>Spectacled Bear</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2><a name="hide-search-on-single-select" class="anchor" href="#hide-search-on-single-select">Hide Search on Single Select</a></h2>
+            <div class="side-by-side clearfix">
+                <div>
+                    <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-no-single" tabindex="9">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option selected disabled>Sloth Bear</option>
+                        <option disabled>Sun Bear</option>
+                        <option selected disabled>Paddington Bear</option>
+                        <option selected>Polar Bear</option>
+                        <option disabled>Spectacled Bear</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2><a name="default-text-support" class="anchor" href="#default-text-support">Default Text Support</a></h2>
+            <div class="side-by-side clearfix">
+                <p>Chosen automatically sets the default field text ("Choose a country...") by reading the select element's data-placeholder value. If no data-placeholder value is present, it will default to "Select an Option" or "Select Some Options" depending
+                    on whether the select is single or multiple. You can change these elements in the plugin js file as you see fit.</p>
+                <pre><code class="language-markup">&lt;select <strong>data-placeholder="Choose a country..."</strong> multiple class="chosen-select"&gt;</code></pre>
+                <p><strong>Note:</strong> on single selects, the first element is assumed to be selected by the browser. To take advantage of the default text support, you will need to include a blank option as the first element of your select list.</p>
+            </div>
+
+            <h2><a name="no-results-text-support" class="anchor" href="#no-results-text-support">No Results Text Support</a></h2>
+            <div class="side-by-side clearfix">
+                <p>Setting the "No results" search text is as easy as passing an option when you create Chosen:</p>
+                <pre><code class="language-javascript"> $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"}); </code></pre>
+                <p></p>
+                <div>
+                    <em>Single Select</em>
+                    <select data-placeholder="Type &apos;C&apos; to view" class="chosen-select-no-results" tabindex="10">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option>Sloth Bear</option>
+                        <option>Sun Bear</option>
+                        <option>Polar Bear</option>
+                        <option>Spectacled Bear</option>
+                    </select>
+                </div>
+                <div>
+                    <em>Multiple Select</em>
+                    <select data-placeholder="Type &apos;C&apos; to view" multiple class="chosen-select-no-results" tabindex="11">
+                        <option value=""></option>
+                        <option>American Black Bear</option>
+                        <option>Asiatic Black Bear</option>
+                        <option>Brown Bear</option>
+                        <option>Giant Panda</option>
+                        <option>Sloth Bear</option>
+                        <option>Sun Bear</option>
+                        <option>Polar Bear</option>
+                        <option>Spectacled Bear</option>
+                    </select>
+                </div>
+            </div>
+        </div> -->
+    
+</body>
+
+<script src="https://harvesthq.github.io/chosen/docsupport/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="https://harvesthq.github.io/chosen/chosen.jquery.js" type="text/javascript"></script>
+<script src="https://harvesthq.github.io/chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://harvesthq.github.io/chosen/docsupport/init.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./toast1.css">
+        <style>
+            .btnsuc
+                 {
+                     
+         height: 35px;
+         width: 6%;
+         background-color: #0cc50c;
+         color: white;
+         font-weight: bold;
+         border-radius: 17px;
+     
+                 }
+                 .btnerr
+                 {
+                     
+         height: 35px;
+         width: 6%;
+         background-color: red;
+         color: white;
+         font-weight: bold;
+         border-radius: 17px;
+     
+                 }
+                 .btnmsg
+                 {
+                     
+         height: 35px;
+         width: 6%;
+         background-color: black;
+         color: white;
+         font-weight: bold;
+         border-radius: 17px;
+     
+                 }
+                 .btninfo
+                 {
+                     
+         height: 35px;
+         width: 6%;
+         background-color: grey;
+         color: white;
+         font-weight: bold;
+         border-radius: 17px;
+     
+                 }
+                 .btnwar
+                 {
+                     
+         height: 35px;
+         width: 6%;
+         background-color: orange;
+         color: white;
+         font-weight: bold;
+         border-radius: 17px;
+     
+                 }
+         </style>
+        <script>
+            function msg()
+            {
+                $.toast({
+                    heading: 'Text',
+    text: 'Hello Toast',
+    showHideTransition: 'slide',
+    icon:'robot'
+})
+            }
+            function succ()
+            {
+                $.toast({
+    heading: 'Success',
+    text: 'Your Task Has been Successfully Submitted',
+    showHideTransition: 'slide',
+    icon: 'success'
+})
+
+            }
+            function err()
+            {
+                $.toast({
+    heading: 'Error',
+    text: 'Report Send issues</a>',
+    showHideTransition: 'fade',
+    icon: 'error'
+})
+
+            }
+            function warn()
+            {
+                $.toast({
+    heading: 'Warning',
+    text: 'Warning Occuring in your task',
+    showHideTransition: 'plain',
+    icon: 'warning'
+})
+
+            }
+            function info()
+            {
+                $.toast({
+    heading: 'Information',
+    text: 'Now you can add icons to the Information',
+    showHideTransition: 'slide',
+    icon: 'info'
+})
+
+            }
+            
+
+        </script>
+        <title>Toast1</title>
+    </head>
+    <body>
+       <center>
+        <h2>Select Which Type Of Toast You Want to See</h2>
+        <input type="button"  class="btnsuc" onclick="succ()" value="Success">
+        <input type="button"  class="btnerr" onclick="err()" value="Error">
+        <input type="button" class="btnwar" onclick="warn()" value="Warning">
+        <input type="button"  class="btninfo" onclick="info()" value="Info">
+        <input type="button"  class="btnmsg" onclick="msg()" value="Message">
+    </center>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./toast1.js"></script>
+    </body>
+</html>

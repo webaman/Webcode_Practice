@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Table Task</title>
+<style>
+
+</style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+$.ajax({
+url: "https://jsonplaceholder.typicode.com/posts",
+success: function (result, status, xhr) {
+var table = $("<table align=center width=50% border=1px><tr><th>UserID</th><th>ID</th><th>Title</th><th>Body</th></tr>");
+var tr;
+for (var i = 0; i < result.length; i++) {
+tr = $("<tr>");
+tr.append("<td width=10%>" + result[i].userId + "</td>");
+tr.append("<td width=10%>" + result[i].id + "</td>");
+tr.append("<td width=30%>" + result[i].title + "</td>");
+tr.append("<td width=50%>" + result[i].body + "</td>");
+tr.append("</tr>");
+table.append(tr);
+}
+table.append("</table>");
+$("#myData").html(table);
+}
+});
+});
+</script>
+</head>
+<body>
+<div id="myData"></div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <style>
+            table, td, th {
+    border: 1px solid black;
+  }
+            table{
+                width: 40%;
+                border-collapse: collapse;
+            }
+            .para
+            {
+                margin: 1%;
+            }
+            h4
+            {
+                margin: 5px;
+            }
+        </style>
+        <title>f2</title>
+
+    </head>
+    <body bgcolor="#ea9310">
+        <center> 
+        <h2><i>KM Custom HTML Form Example Using AppleScript</i></h2>
+        <p>(by JMichaelTX)</p>
+        <table>
+        <tr>
+            <td width="30%"><h4>Name:</h4></td>
+            <td width="70%"><input type="text" name="nm" required></td>
+        </tr>
+        <tr>
+            <td><h4>Email:</h4></td>    
+            <td><input type="email" name="em" required style="width: 95%;"></td>
+        </tr>
+        <tr>
+            <td><h4>Password:</h4></td>
+            <td><input type="password" name="password" required></td>
+        </tr>
+        <tr>
+            <td><h4>Approval Required:</h4><p class="para">Click on the button or text to check/uncheck</p></td>
+            <td><input type="checkbox" name="check" required>Do you approve?</td>
+        </tr>
+         
+        <tr>
+            <td><h4>Pick your favourite:</h4><p class="para">Click on the button or text to select.</p></td>
+            <td><input type="radio" name="rad" required>Choice A<br>
+                <input type="radio" name="rad" required>Choice B<br>
+                <input type="radio" name="rad" required>Choice C<br></td>
+        </tr>
+        <tr>
+            <td><h4>Popup Menu:</h4></td>
+            <td><select style="width: 164px;">
+                <option value="">Texas -- TX</option>
+                <option value="aus">Australia -- AUS</option>
+                <option value="eng">England -- ENG</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><h4>List:</h4><p class="para">Setup Options:
+                <ul>
+                    <li>Number of rows to display</li>
+                    <li>Allow Multi-select</li>
+                </ul>
+            </p></td>
+            <td>
+                <select name="test" multiple style="
+                height: 131px;
+                width: 164px;
+            ">
+                    <option value="cal">California -- CA</option>
+                    <option value="col">Colorado -- CO</option>
+                    <option value="con">Connecticut -- CN</option>
+                    <option value="dal">Dalifornia -- DA</option>
+                    <option value="dol">Dolorado -- DO</option>
+                    <option value="tex">Texas -- TX</option>
+                    <option value="aus">Australia -- AUS</option>
+                    <option value="eng">England -- ENG</option>
+                    <option value="new">New York -- NY</option>
+                </select>
+                
+                </td>
+        </tr>
+        <tr>
+            <td><h4>Field Ignored by KM</h4></td>    
+            <td><input type="number" name="nmber" required></td>
+        </tr>
+        <tr>
+            <td><h4>Text Area</h4></td>    
+            <td><textarea rows="5" cols="50"></textarea></td>
+        </tr>
+        </table>
+        <p  style="margin-right: 380px">
+        <input type="submit" value="Save" style="
+        color: white;
+        height: 30px;
+        margin: 5px;
+        width: 67px;
+        background-color: blue;
+        border-radius: 20px;
+        font-weight: bold;
+
+    "> <input type="submit" value="Cancel" style="
+    color: black;
+    height: 30px;
+    width: 67px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 20px;
+    font-weight: bold;
+
+"> <input type="submit" value="Resize" style="
+color: black;
+height: 30px;
+width: 67px;
+margin: 5px;
+background-color: grey;
+border-radius: 20px;
+font-weight: bold;
+
+">
+    </p>
+    </center>
+   
+    </body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script>
+            var count=0;
+            var arr=[];
+            
+             function addtodo()
+             {
+            
+             arr[count]=document.getElementById('name').value;
+              count++;
+              var form="<ol type=1>"
+              for(var i=0; i<count; i++)
+              {
+              form += "<li>" + arr[i] + "</li>";
+            }   
+               form+="</ol>";
+                document.getElementById("list").innerHTML = form;
+                
+              
+              
+
+             }
+        </script>
+        <title>
+            Todo
+        </title>
+    </head>
+    <body>
+        <form name="frm">
+        Todo:<input type="text" id="name">
+        <input type="button" onclick="addtodo()" value="Add">
+        <div id="list"></div>
+        
+    </form>
+    </body>
+</html>

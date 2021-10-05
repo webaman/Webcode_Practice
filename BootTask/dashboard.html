@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+        .canvasjs-chart-credit
+        {
+            display: none;
+        }
+        .btnsuc
+            {
+                
+    height: 35px;
+    width: 14%;
+    background-color: #440cc5;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnsuc1
+            {
+                
+    height: 35px;
+    width: 14%;
+    background-color: #b60cc5;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnln
+            {
+                
+    height: 35px;
+    width: 14%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnsuc2
+            {
+                
+    height: 35px;
+    width: 14%;
+    background-color: #c50c0c;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnsuc3
+            {
+                
+    height: 35px;
+    width: 14%;
+    background-color: #0c0fc5;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+    </style>
+<script>
+    function line()
+    {
+        var options = {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Actual vs Projected Sales"
+	},
+	axisX:{
+		valueFormatString: "DD MMM"
+	},
+	axisY: {
+		title: "Number of Sales",
+		suffix: "K",
+		minimum: 30
+	},
+	toolTip:{
+		shared:true
+	},  
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
+	data: [{
+		type: "line",
+		showInLegend: true,
+		name: "Projected Sales",
+		markerType: "square",
+		xValueFormatString: "DD MMM, YYYY",
+		color: "#F08080",
+		yValueFormatString: "#,##0K",
+		dataPoints: [
+			{ x: new Date(2017, 10, 1), y: 63 },
+			{ x: new Date(2017, 10, 2), y: 69 },
+			{ x: new Date(2017, 10, 3), y: 65 },
+			{ x: new Date(2017, 10, 4), y: 70 },
+			{ x: new Date(2017, 10, 5), y: 71 },
+			{ x: new Date(2017, 10, 6), y: 65 },
+			{ x: new Date(2017, 10, 7), y: 73 },
+			{ x: new Date(2017, 10, 8), y: 96 },
+			{ x: new Date(2017, 10, 9), y: 84 },
+			{ x: new Date(2017, 10, 10), y: 85 },
+			{ x: new Date(2017, 10, 11), y: 86 },
+			{ x: new Date(2017, 10, 12), y: 94 },
+			{ x: new Date(2017, 10, 13), y: 97 },
+			{ x: new Date(2017, 10, 14), y: 86 },
+			{ x: new Date(2017, 10, 15), y: 89 }
+		]
+	},
+	{
+		type: "line",
+		showInLegend: true,
+		name: "Actual Sales",
+		lineDashType: "dash",
+		yValueFormatString: "#,##0K",
+		dataPoints: [
+			{ x: new Date(2017, 10, 1), y: 60 },
+			{ x: new Date(2017, 10, 2), y: 57 },
+			{ x: new Date(2017, 10, 3), y: 51 },
+			{ x: new Date(2017, 10, 4), y: 56 },
+			{ x: new Date(2017, 10, 5), y: 54 },
+			{ x: new Date(2017, 10, 6), y: 55 },
+			{ x: new Date(2017, 10, 7), y: 54 },
+			{ x: new Date(2017, 10, 8), y: 69 },
+			{ x: new Date(2017, 10, 9), y: 65 },
+			{ x: new Date(2017, 10, 10), y: 66 },
+			{ x: new Date(2017, 10, 11), y: 63 },
+			{ x: new Date(2017, 10, 12), y: 67 },
+			{ x: new Date(2017, 10, 13), y: 66 },
+			{ x: new Date(2017, 10, 14), y: 56 },
+			{ x: new Date(2017, 10, 15), y: 64 }
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}   
+    }
+function sub() {
+
+var options = {
+	title: {
+		text: "OS Market Share in 2021"
+	},
+	subtitles: [{
+		text: "As of November, 2021"
+	}],
+	animationEnabled: true,
+	data: [{
+		// type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 10.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+$("#chartContainer").CanvasJSChart(options);
+
+}
+
+
+function sub1() {
+
+var options = {
+	title: {
+		text: "OS Market Share in 2021"
+	},
+	subtitles: [{
+		text: "As of November, 2021"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 10.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+
+$("#chartContainer").CanvasJSChart(options);
+
+}
+function sub2() {
+
+var options = {
+	title: {
+		text: "OS Market Share in 2021"
+	},
+	subtitles: [{
+		text: "As of November, 2021"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "bar",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 10.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+
+$("#chartContainer").CanvasJSChart(options);
+
+}
+function sub3() {
+
+var options = {
+	title: {
+		text: "OS Market Share in 2021"
+	},
+	subtitles: [{
+		text: "As of November, 2021"
+	}],
+	animationEnabled: true,
+	data: [{
+		type: "doughnut",
+		startAngle: 40,
+		toolTipContent: "<b>{label}</b>: {y}%",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - {y}%",
+		dataPoints: [
+			{ y: 10.36, label: "Windows 7" },
+			{ y: 26.85, label: "Windows 10" },
+			{ y: 1.49, label: "Windows 8" },
+			{ y: 6.98, label: "Windows XP" },
+			{ y: 6.53, label: "Windows 8.1" },
+			{ y: 2.45, label: "Linux" },
+			{ y: 3.32, label: "Mac OS X 10.12" },
+			{ y: 4.03, label: "Others" }
+		]
+	}]
+};
+
+$("#chartContainer").CanvasJSChart(options);
+
+}
+</script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="./all.min.css">
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="./adminlte.min.css">
+<link rel="stylesheet" href="./tempusdominus-bootstrap-4.min.css">
+<link rel="stylesheet" href="./icheck-bootstrap.min.css">
+<link rel="stylesheet" href="./jqvmap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <title>File</title>
+  </head>
+  <body>
+      <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <a class="navbar-brand text-dark" href="#">Menu</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item active">
+                        <a class="nav-link " href="login.html">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="form.html">Signup</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="table.html">Table</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+            </div>
+        </div>
+               
+          <div class="row mt-4">
+            <div class="row"></div>
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-info">
+                    <div class="inner">
+                      <h3>150</h3>
+      
+                      <p>New Orders</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-success">
+                    <div class="inner">
+                      <h3>53<sup style="font-size: 20px">%</sup></h3>
+      
+                      <p>Bounce Rate</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-warning">
+                    <div class="inner">
+                      <h3>44</h3>
+      
+                      <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-danger">
+                    <div class="inner">
+                      <h3>65</h3>
+      
+                      <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
+                </div>
+                <!-- ./col -->
+              </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+          <div class="col-md-12">
+            <input type="button" class="btnsuc" onclick="sub()" value="Graph">
+            <input type="button" class="btnsuc1" onclick="sub1()" value="Pie">
+            <input type="button" class="btnln" onclick="line()" value="Line">
+            <input type="button" class="btnsuc2" onclick="sub2()" value="Bar">
+            <input type="button" class="btnsuc3" onclick="sub3()" value="Donut">
+          </div>
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter The Name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-outline-success">Send</button>
+<button type="button" class="btn btn-outline-danger">Cancel</button>
+    </div>
+    </div>
+     
+     
+</div>
+<div class="container-fluid bg-dark text-light mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Menu</h2>
+            <div>
+                <a href="#">Home</a><br>
+                <a href="#">About</a><br>
+                <a href="#">Contact</a><br>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <div class="col-md-3"><h2>About us</h2>
+            <div>
+                et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusitatibus 
+            </div></div>
+        <div class="col-md-3">
+                <h2>Terms</h2>
+            <div>
+                et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimusitatibus 
+            </div></div>
+        <div class="col-md-3"><h2>Contact</h2>
+            
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-12 mt-4">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Send</button>
+              </div>
+        </div>
+      </div>
+      <div class="row mt-4 ">
+        <div class="col-md-12 text-center">Copyright 2021 &copy; amandummy.com | All Rights Reserved</div>
+        </div>
+</div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script src="./bootstrap.bundle.min.js"></script>
+  </body>
+</html> 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Ajax Start</title>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(document).ajaxStart(function() {
+                alert("AJAX request started");
+            });
+            $("button").click(function() {
+                $("#paragraph").load(
+                  "am.txt");
+            });
+        });
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+  
+<body>
+    <div id="div_content">
+        <p id="paragraph" 
+           style="font-size: 20px;">
+            Hello Jquery
+        </p>
+    </div>
+    <button>Change Content
+  </button>
+</body>
+  
+</html>

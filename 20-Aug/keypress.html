@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script src="./jqueryfile/jquery.js"></script>
+        <script type="text/javascript">
+            i = 0;
+            $(document).ready(function(){
+            $("input").keypress(function(){
+            $("span").text(i += 1);
+            });
+            });
+            </script>
+        <title>Keypress</title>
+    </head>
+    <body>
+    <input type="text">
+    Key Pressing Count <span>0</span>
+    </body>
+</html>

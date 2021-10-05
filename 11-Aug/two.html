@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            .container
+            {
+            border: 1px solid red;
+            height: 3440px;
+            }
+            .box
+            {
+                border: 1px solid green;
+                display: inline-block;
+                height: 200px;
+                width: 200px;
+                margin: 5px;
+            }
+
+            img
+            {
+                height: 200px;
+                width: 200px;
+                opacity: 0.5;
+            }
+
+             #box22
+            {
+                position: absolute;
+                margin: 20px;
+            
+            }
+
+            #box21
+            {
+                position: relative;
+                margin: 20px;
+            
+            }
+            #box33
+            {
+                position: fixed;
+                right: 20px;
+            }
+            #box44
+            {
+                position: sticky;
+                top: 3px;
+                right: 20px;
+            }
+        </style>
+        <title>two</title>
+    </head>
+    <body>
+        <div class="container">
+         <div class="box" id="box1">1</div>
+         <div class="box" id="box2">2</div>
+         <div class="box" id="box3">3</div>
+         <div class="box" id="box44"><h2>Sticky</h2></div>
+<hr>
+
+<div class="box" id="box21"><h2>relative</h2></div>
+<div class="box" id="box2">2</div>
+<div class="box" id="box3">3</div>
+<div class="box" id="box4">4</div>
+<hr>
+
+<div class="box" id="box1">1</div>
+<div class="box" id="box2"><h3>Fixed</h3></div>
+<div class="box" id="box33"><img src="whatsapp.png"></div>
+<div class="box" id="box4">4</div>
+<hr>
+
+<div class="box" id="box1">1</div>
+<div class="box" id="box22"><h2>absolute</h2></div>
+<div class="box" id="box3">3</div>
+<div class="box" id="box4">4</div>
+
+        </div>
+    </body>
+</html>

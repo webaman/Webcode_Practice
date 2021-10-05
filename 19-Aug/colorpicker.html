@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Color:<input type="color" id="myColor" value="#ff0080">
+Background-Color:<input type="color" id="myColor1" value="#ff0080">
+<div id="demo">Hello World</div>
+
+<input type="button" onclick="myFunction()" value="Change">
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myColor").value;
+  var y = document.getElementById("myColor1").value;
+  document.getElementById("demo").style.color=x;
+  document.getElementById("demo").style.height="200px";
+  document.getElementById("demo").style.width="200px";
+  document.getElementById("demo").style.backgroundColor=y;
+  
+}
+</script>
+
+</body>
+</html>

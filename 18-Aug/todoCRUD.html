@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script>   
+        var ninp; 
+        var count=0;
+             function add()
+             {
+            
+             var input= document.getElementById('name').value;
+             if(localStorage.getItem('data') == null)
+             {
+              localStorage.setItem('data','[]');   
+             }
+
+              ninp=JSON.parse(localStorage.getItem('data'))
+             ninp.push(input)
+
+             localStorage.setItem('data',JSON.stringify(ninp))
+             }
+             function show()
+             {
+                 
+                 var form="<p>"
+                let keys = Object.keys(localStorage);
+                
+                    for(let key of keys) {
+                        form+= JSON.parse(localStorage.getItem(key)) 
+                     //   console.log("hello")
+}
+  form+="</p>"
+  document.getElementById("list").innerHTML=form
+               
+             }
+             function del(index)
+             {
+                var user = localStorage.getItem('data');
+            user.splice(index,1); // delete item at index
+
+             }
+        </script>
+        <title>TodoList Local</title>
+    </head>
+    <body>
+        <input type="text" id="name">
+        <input type="button" onclick="add()" value="Submit">
+        <input type="button" onclick="show()" value="Show">
+        <input type="button" onclick="del(1)" value="Delete">
+        <div id="data"></div>
+        <div id="list"></div>
+    </body>
+</html>

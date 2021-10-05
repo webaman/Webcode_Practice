@@ -1,0 +1,28 @@
+<html>
+    <head>
+      
+            <script type="text/javascript">
+           var count = 20;
+   function counter() {
+    counting = setInterval(function()
+     {
+        document.getElementById("demo").innerHTML = --count;
+       if (count == 0) {
+         clearInterval(counting);
+         count=21;
+         alert("Time Up");
+       }
+     }, 1000);
+     
+
+     
+   }
+        </script>
+        <title>Timer</title>
+    </head>
+    <body>
+        <p id="demo">20</p>
+        <button onclick="counter();">Start counter</button>
+        <button onclick="clearInterval(counting);">Stop counter</button>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<style>
+    table {
+    counter-reset: tableCount;     
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+
+</style>
+
+<h1>Display</h1>
+{{user_array.length}} Records Found
+
+<table border='1'>
+    <tr>
+        <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>IdAdmin</th>
+            <th>Join Date</th>
+            <th>Action</th>
+    </tr>
+
+{{#each user_array}}
+    <tr>
+    <td class="counterCell"></td>
+    <td>{{user_name}}</td>
+    <td>{{user_gender}}</td>
+    <td>{{user_dob}}</td>
+    <td>{{user_mobile}}</td>
+    <td>{{user_email}}</td>
+    <td>{{user_password}}</td>
+    <td>{{user_isadmin}}</td>
+    <td>{{user_joindate}}</td>
+    <td>
+        <a href="/editauth/{{_id}}">Edit</a> |
+        <a href="/deleteauth/{{_id}}" onclick="return confirm('Are you sure?')">Delete</a>
+
+    </td>
+    </tr>
+{{/each}}
+
+
+</table>

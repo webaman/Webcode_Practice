@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+          var Calcvalue = function (n) {
+  this.val = n;
+}
+
+Calcvalue.prototype.add = function (n) {
+  this.val = this.val+ n;
+  return this;
+};
+
+Calcvalue.prototype.sub = function (n) {
+  this.val = this.val- n;
+  return this;
+};
+Calcvalue.prototype.multi = function (n) {
+  this.val=this.val* n;
+  return this;
+};
+Calcvalue.prototype.div = function (n) {
+  this.val=this.val/ n;
+  return this;
+};
+
+Calcvalue.prototype.toString = function()
+{
+return this.val
+}
+
+var obj = new Calcvalue(10).add(5).multi(2).div(3).sub(2);
+
+alert(obj); 
+    </script>
+        <title>One</title>
+    </head>
+    <body>
+
+    </body>
+    </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo" align="center">Hello This is Aman</div>
+
+<script>
+document.getElementById("demo").addEventListener("mouseover", function() {
+  this.style.backgroundColor = "red";
+  this.style.color = "white";
+});
+
+document.getElementById("demo").addEventListener("click", function() {
+  this.style.fontSize = "30px";
+  this.style.backgroundColor = "grey";
+  this.style.color = "white";
+
+});
+document.getElementById("demo").addEventListener("dblclick", function() {
+  this.style.fontSize = "16px";
+  this.style.backgroundColor = "red";
+  this.style.color = "white";
+
+});
+document.getElementById("demo").addEventListener("mouseout", function() {
+  this.style.backgroundColor = "black";
+  this.style.color = "white";
+});
+
+</script>
+
+</body>
+</html>

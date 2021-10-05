@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DropDown 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+    "use strict";
+
+    var selectData, $states;
+
+    function updateSelects() {
+        var cities = $.map(selectData[this.value], function (city) {
+            return $("<option />").text(city);
+        });
+        $("#city").empty().append(cities);
+    }
+
+    $.getJSON("updateSelect.json", function (data) {
+        var state;
+        selectData = data;
+        $states = $("#states").on("change", updateSelects);
+        for (state in selectData) {
+            $("<option />").text(state).appendTo($states);
+        }
+        $states.change();
+    });
+});
+    </script>
+</head>
+<body>
+    <select id="states"></select>
+    <select id="city"></select>
+    <script type="text/javascript" src="updateSelect.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lightbox plugin</title>
+    <style>
+   
+
+.lightbox {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 10px;
+}
+
+.img-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(38, 40, 52, 0.9);
+    text-align: center;
+    display: none;
+    z-index: 9999999999999;
+    animation: pop-in;
+    animation-duration: 0.5s;
+    -webkit-animation: pop-in 0.5s;
+    -moz-animation: pop-in 0.5s;
+    -ms-animation: pop-in 0.5s;
+
+}
+
+.img-popup img {
+    position: absolute;
+    top: 50%;
+    max-width: 80%;
+    max-height: 80vh;
+    display: inline-block;
+    transform: translate(-50%, -50%);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 45px;
+    right: 20%;
+    padding: 0px 10px;
+    color: #fff;
+    font-size: 35px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    z-index: 99;
+    cursor: pointer;
+}
+.lightboxfadeout{
+    animation: fadeout;
+    animation-duration: 0.5s;
+    -webkit-animation: fadeout 0.5s;
+    -moz-animation: fadeout 0.5s;
+    -ms-animation: fadeout 0.5s;
+}
+
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes pop-in {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+}
+
+@-moz-keyframes pop-in {
+    0% {
+        opacity: 0;
+        -moz-transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+}
+
+
+@keyframes fadeout {
+    100% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes fadeout {
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(0.1);
+    }
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+    }
+}
+
+@-moz-keyframes fadeout {
+    100% {
+        opacity: 0;
+        -moz-transform: scale(0.1);
+    }
+    0% {
+        opacity: 1;
+        -moz-transform: scale(1);
+    }
+}
+    </style>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+$(document).ready(function () {
+    "use strict";
+    $(".lightbox").click(function () {
+        var imgsrc = $(this).attr('src');
+        $("body").append("<div class='img-popup'><span class='close-lightbox'>&times;</span><img src='" + imgsrc + "'></div>");
+        $(".close-lightbox, .img-popup").click(function () {
+            $(".img-popup").fadeOut(500, function () {
+                $(this).remove();
+            }).addClass("lightboxfadeout");
+        });
+
+    });
+    $(".lightbox").click(function () {
+        $(".img-popup").fadeIn(500);
+    });
+
+});
+    </script>
+</head>
+
+<body>
+  
+    <img class="lightbox" src="images/honda1.jpg" />
+    <img class="lightbox" src="images/honda2.jpg" />
+    <img class="lightbox" src="images/honda3.jpg" />
+
+   
+</body>
+
+</html>

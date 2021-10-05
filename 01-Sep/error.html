@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Error</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $("#btn").click(function (e) {
+            $.ajax({
+            url: "tabetask.html",
+            success: function (result,status,xhr) {
+            $("#demo").html(result);
+            },
+            error: function (xhr,status,error) {
+
+            $("#demo").html("Result:" + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+            }
+            });
+            });
+            });
+            </script>
+        <title>Load</title>
+    </head>
+    <body>
+<input type="button" value="Error_Show" id="btn">
+<p id="demo"></p>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+table, td, th {
+    border: 4px solid green;
+  }
+  
+  table {
+    width: 30%;
+    border-collapse: collapse;
+  }

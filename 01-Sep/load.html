@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $("#btn").click(function (e) {
+            $.ajax({
+            url: "tabletask.html",
+            success: function (result,status,xhr) {
+            $("#demo").html(result);
+            }
+            });
+            });
+            });
+            </script>
+        <title>Load</title>
+    </head>
+    <body>
+<input type="button" value="Submit" id="btn">
+<p id="demo"></p>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script>
+            var count=0;
+            function increment()
+            {
+                if(count==0)
+                {
+                    count=1;
+
+                }
+                else
+                {
+                    count++;
+                }
+            
+            document.getElementById("data").innerHTML=count;
+            }
+
+            function decrement()
+            {
+                if(count==0)
+                {
+                    count=0;
+
+                }
+                else
+                {
+                    count--;
+                }
+            
+            document.getElementById("data").innerHTML=count;
+            }
+        </script>
+        <title>Counter</title>
+    </head>
+    <body>
+        <p id="data">0</p>
+        <input type="button" onclick="increment()" value="+">
+        <input type="button" onclick="decrement()" value="-">
+    </body>
+    </html>

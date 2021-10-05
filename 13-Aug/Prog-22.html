@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script>
+
+             /* Program to make simple calculator  */
+
+            var num1= parseInt(prompt("Enter First Number"));
+            var num2= parseInt(prompt("Enter Second Number"));
+             var choice=(prompt("Enter Your Choice + - * /"));
+
+             
+
+            switch (choice) {
+                case '+':
+                    document.write("Addition of a Number - " + (num1+num2));
+                    break;
+
+                    case '-':
+                    document.write("Subtraction of a Number - " + (num1-num2));
+                    break;
+
+                    case '*':
+                    document.write("Multiplication of a Number - " + (num1*num2));
+                    break;
+
+                    case '/':
+                    document.write("Division of a Number - " + parseFloat((num1/num2)));
+                    break;
+            
+                default:
+                document.write("Invalid Number") ;
+                    break;
+            }
+             
+            
+        </script>
+        <title>Prog22</title>
+    </head>
+</html> 

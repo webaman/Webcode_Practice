@@ -1,0 +1,40 @@
+
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <title>ajax error</title> 
+        <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+        </script> 
+        <script> 
+            $(document).ready(function(){
+                $( document ).ajaxError(function( event, request, settings ) {
+    $( "#paragraph" ).text( "Error requesting page " + settings.url   );
+  });
+                  
+                $("button").click(function(){
+                    $("#paragraph").load("demo.txt");
+                });
+            });
+        </script> 
+    </head> 
+      
+    <body style="text-align:center;"> 
+      
+        <div id="div_content"> 
+           
+              
+            <p id = "paragraph" style= "font-size: 20px;">
+                Hello Jquery
+            </p> 
+        </div> 
+          
+        <button>
+            Change Content
+        </button> 
+    </body> 
+</html>   
+
+
+
+

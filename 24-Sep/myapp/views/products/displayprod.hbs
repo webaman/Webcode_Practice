@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <style>
+    table {
+    counter-reset: tableCount;     
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+
+</style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{myname}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/homeadmin">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/proreg">Add Product</a>
+          <a class="dropdown-item" href="/displayprod">Show Product</a>
+         
+        </div>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/change-adminpassword">Change Password</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/logoutadmin">Logout</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+      <h1>Display Product</h1>
+{{user_array.length}} Records Found
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Details</th>
+            <th>Product Price</th>
+            <th>Product Qty</th>
+            <th>Product Image</th>
+            <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each user_array}}
+    <tr>
+     <td class="counterCell"></td>
+      <td>{{prod_name}}</td>
+      <td>{{prod_details}}</td>
+      <td>{{prod_price}}</td>
+    <td>{{prod_qty}}</td>
+    <td><img src="/images/{{prod_image}}" style="height: 100px;"></td>
+    <td><a href="/editprod/{{_id}}">Edit</a> |
+    <a href="/deleteprod/{{_id}}" onclick="return confirm('Are you sure?')">Delete</a>
+    </td>
+    
+    </tr>
+   {{/each}}
+
+  </tbody>
+</table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

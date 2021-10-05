@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+            var flag=true;
+            function add()
+            {
+             var form="<form action='am'>Enter The Name: <input type='text' name='nm' > "
+                document.getElementById('data').innerHTML='Data Load';
+
+                if(flag)
+                {
+                    document.getElementById('data').innerHTML=form;
+                    flag=false; 
+                }
+                else
+                {
+                    document.getElementById('data').innerHTML="";
+                    flag=true;
+                }
+            }
+        </script>
+        <title>
+            Get ID
+        </title>
+    </head>
+    <body>
+        <div id="data"></div>
+        <input type="button" onclick="add()" value="submit">
+    </body>
+</html>

@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <link href="./js/toastr.css" rel="stylesheet"/>
+    <style>
+       .btnsuc
+            {
+                
+    height: 35px;
+    width: 6%;
+    background-color: #0cc50c;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnerr
+            {
+                
+    height: 35px;
+    width: 6%;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btninfo
+            {
+                
+    height: 35px;
+    width: 6%;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+            .btnwar
+            {
+                
+    height: 35px;
+    width: 6%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border-radius: 17px;
+
+            }
+    </style>
+
+       
+        
+        <title>Toast</title>
+    </head>
+    <body>
+        <input type="button" id="b1" class="btnsuc" value="Success">
+        <input type="button" id="b2" class="btnerr" value="Error">
+        <input type="button" id="b3" class="btnwar" value="Warning">
+        <input type="button" id="b4" class="btninfo" value="Info">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="./js/toastr.min.js"></script>
+        <script>
+          
+            $("#b1").on("click", function()
+            {
+             toastr.options = {
+"closeButton": false,
+"debug": false,
+"newestOnTop": false,
+"progressBar": false,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "300",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+}
+toastr["success"]("Data Delete","Success")
+
+            })
+
+            $("#b2").on("click", function()
+            {
+             toastr.options = {
+"closeButton": false,
+"debug": false,
+"newestOnTop": false,
+"progressBar": false,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "300",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+}
+toastr["error"]("Error Occured","Error")
+
+            })
+
+
+            $("#b3").on("click", function()
+            {
+             toastr.options = {
+"closeButton": false,
+"debug": false,
+"newestOnTop": false,
+"progressBar": false,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "300",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+}
+toastr["warning"]("Warning Msg","Warning")
+
+            })
+
+            $("#b4").on("click", function()
+            {
+             toastr.options = {
+"closeButton": false,
+"debug": false,
+"newestOnTop": false,
+"progressBar": false,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "300",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+}
+toastr["info"]("Data Information","Info")
+
+            })
+     
+     
+     </script>  
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<style>
+    .error
+    {
+        color: red;
+        font-style: italic;
+    }
+</style>
+        <script>
+            $(document).ready(function()
+            {
+                $("#frm").validate();
+            
+            })
+            
+            </script>
+        <title>Demo</title>
+    </head>
+    <body>
+        <form id="frm">
+            Enter First Name: <input type="text" name="fname" required><br>
+            Enter Last Name: <input type="text" name="lname" required><br>
+            Enter Email Add: <input type="email" name="em" required><br>
+            Enter Mobile No. <input type="number" name="mno" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+    </html>

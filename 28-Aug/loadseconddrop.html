@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var $select1 = $('#select1'),
+                $select2 = $('#select2'),
+                $options = $select2.find('option');
+
+            $select1.on('change', function() {
+                $select2.html($options.filter('[value="' + this.value + '"]'));
+            }).trigger('change');
+        });
+    </script>
+</head>
+
+<body>
+    <select name="select1" id="select1">
+        <option value="1">Madhya Pradesh</option>
+        <option value="2">Gujarat</option>
+        <option value="3">Maharastra</option>
+    </select>
+
+    <select name="select2" id="select2">
+        <option value="1">Indore</option>
+        <option value="1">Bhopal</option>
+        <option value="1">Ujjain</option>
+        <option value="2">Ahemdabad</option>
+        <option value="2">Vadhodra</option>
+        <option value="2">Surat</option>
+        <option value="3">Mumbai</option>
+        <option value="3">Pune</option>
+        <option value="3">Thane<option>
+    </select>
+</body>
+
+</html>
