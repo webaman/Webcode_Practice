@@ -134,8 +134,34 @@
                     <input type="file"  name="files123" >
                   </div>
                 </div>
-                
-                
+                 <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-3 col-form-label">Product Category</label>
+                  <div class="col-sm-6">
+                      <select class="form-select" aria-label="Default select example" name="_procategory" >
+  
+   {{#each mydata}}
+                        
+                            <option value='{{_id}}'>{{cat_name}}</option>
+                           
+                           {{/each}}
+  
+</select>
+                  </div>
+                </div>
+       <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-3 col-form-label">Product Subcat</label>
+                  <div class="col-sm-6">
+                      <select class="form-select" aria-label="Default select example" name="_prosubcategory" >
+  
+   {{#each mysubcat}}
+                        
+                            <option value='{{_id}}'>{{sub_category_name}}</option>
+                           
+                           {{/each}}
+  
+</select>
+                  </div>
+                </div>
                 <div class="form-group row mt-4">
                   <div class="offset-sm-2 col-sm-10">
                     

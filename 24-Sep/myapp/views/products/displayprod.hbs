@@ -66,6 +66,8 @@
             <th>Product Details</th>
             <th>Product Price</th>
             <th>Product Qty</th>
+            <th>Product Category</th>
+            <th>Product Subcategory</th>
             <th>Product Image</th>
             <th>Action</th>
     </tr>
@@ -78,6 +80,8 @@
       <td>{{prod_details}}</td>
       <td>{{prod_price}}</td>
     <td>{{prod_qty}}</td>
+    <td>{{_procategory.cat_name}}</td>
+    <td>{{_prosubcategory.sub_category_name}}</td>
     <td><img src="/images/{{prod_image}}" style="height: 100px;"></td>
     <td><a href="/editprod/{{_id}}">Edit</a> |
     <a href="/deleteprod/{{_id}}" onclick="return confirm('Are you sure?')">Delete</a>

@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value);
+    value++;
+    document.getElementById('number').value = value;
+    multi()
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number').value);
+   if(value>1) {value--;}
+    document.getElementById('number').value = value;
+    multi()
+}
+function multi()
+{
+  var value = parseInt(document.getElementById('number').value);
+  var price = parseInt(document.getElementById('price').value);
+  console.log("p",price);
+  console.log("pq",value)
+  var amount=value*price;
+  console.log(parseInt(amount));
+  document.getElementById('amn').innerHTML=amount;
+}
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,25 +50,64 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" action="/gocart">
               <div class="card-body">
                 <div class="form-group row mt-4">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">Image</label>
-                    <div class="col-sm-12">
-                        <label for="inputPassword3" class="col-sm-6 col-form-label" ><img src="/images/{{mydata.prod_image}}" height="200px" width="200px"></label>
-                    </div>
-                  </div>
-                  <div class="form-group row mt-4">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">Product Name</label>
-                    <div class="col-sm-6">
-                        <label for="inputPassword3" class="col-sm-6 col-form-label">{{mydata.prod_name}}</label>
-                    </div>
-                  </div>
-                  <div class="form-group row mt-4">
-                    <label for="inputPassword3" class="col-sm-3 col-form-label">Product Price</label>
-                    <div class="col-sm-6">
-                        <label for="inputPassword3" class="col-sm-6 col-form-label">{{mydata.prod_price}}</label>
-                    </div>
+  <div class="col-sm-4"><label for="inputPassword3" class="col-sm-6 col-form-label" ><img src="/images/{{mydata.cart_image}}" height="200px" width="200px" name="{{mydata.prod_image}}"></label></div>
+  <div class="col-sm-8" style="margin-top:40px"><label for="inputPassword3" name="{{mydata.prod_name}}" class="col-sm-4 col-form-label">Product Name</label>{{mydata.cart_name}}
+  <div class="row mt-2">
+
+      
+      <div class="col-md-5">
+        <label for="inputPassword3" class="col-sm-9 col-form-label" >Product Price</label>
+      </div>
+      <div class="col-md-7">
+        {{!-- <label for="inputPassword3" class="col-sm-8 col-form-label" id="price">{{mydata.prod_price}}</label> --}}
+        <input type="text" id="price" name="{{mydata.prod_price}}" value="{{mydata.cart_price}}" style="border-style: none;" disabled>
+      </div>
+
+  </div>
+  <div class="row mt-2">
+
+      
+      <div class="col-md-5">
+        <label for="inputPassword3" class="col-sm-9 col-form-label">Product Qty</label>
+      </div>
+      <div class="col-md-7">
+        <div class="form-group">
+    {{!-- <select class="form-control" id="exampleFormControlSelect1" style="margin-right: 40px; width:4em">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select> --}}
+      <input type="button" onclick="decrementValue()"  value="-"/>
+
+<input type="text" style = "width:20px" id="number" value="1"/>
+        <input type="button" onclick="incrementValue()" value="+"/>
+  </div>
+      </div>
+
+  </div>
+  <div class="row mt-2">
+
+      
+      <div class="col-md-5">
+        <label for="inputPassword3" class="col-sm-9 col-form-label" >Amount</label>
+      </div>
+      <div class="col-md-7">
+       {{!-- <input type="text" id="amn" value="1"> --}}
+       <p id="amn" name="amn">{{mydata.cart_price}}</p>
+        {{!-- <label for="inputPassword3" class="col-sm-8 col-form-label" id="amn"></label> --}}
+      </div>
+
+  </div>
+  
+  </div>
+               <div >
+                 <input type="submit" class="btn btn-outline-danger" style="margin-left: 40px;" value="Go to Cart"/>
+               </div> 
                   </div>
                   
                   

@@ -13,6 +13,7 @@ var CountryModel=require('../model/country');
 var StateModel=require('../model/state');
 var CityModel=require('../model/city');
 var ProModel=require('../model/prod');
+var CartModel=require('../model/cart');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -572,7 +573,32 @@ router.post('/editauth/:id', function (req, res) {
   });
 });
 router.get('/proreg', function(req, res, next) {
-  res.render('products/proreg', { title: 'Express' });
+  
+  CatModel.find(function(err, db_category_array) {
+    if (err) {
+        console.log("Error in Fetch Data " + err);
+      } else {
+        //Print Data in Console
+        console.log("aman",db_category_array);
+        SubcatModel.find(function(err, db_subcategory_array) {
+          if (err) {
+              console.log("Error in Fetch Data " + err);
+            } else {
+              //Print Data in Console
+              console.log("mm",db_subcategory_array);
+              //Render User Array in HTML Table
+              res.render('products/proreg', { mydata:db_category_array,mysubcat : db_subcategory_array });
+              
+            }
+    
+           
+        });  
+        //Render User Array in HTML Table
+        
+        
+      }
+  });
+//res.render('add-category');
 });
 
 router.post('/pro-process', function(req, res, next) {
@@ -590,7 +616,9 @@ myfile.mv('public/images/'+myfilename, function(err) {
     prod_details : req.body.pdt,
     prod_price:req.body.ppr,
     prod_qty:req.body.pqt,
-    prod_image:myfilename
+    prod_image:myfilename,
+    _procategory: req.body._procategory,
+    _prosubcategory: req.body._prosubcategory
   }
   var data = ProdModel(mybodydata);
 
@@ -606,17 +634,22 @@ myfile.mv('public/images/'+myfilename, function(err) {
 });
 router.get('/displayprod', function (req, res, next) {
 
-  ProdModel.find(function (err, db_users_array) {
-    if (err) {
-      console.log("Error in Fetch Data " + err);
-    } else {
-      //Print Data in Console
-      console.log(db_users_array);
-      //Render User Array in HTML Table
-      res.render('products/displayprod', { user_array: db_users_array });
-
-    }
-  });
+  ProdModel.find(function(err, db_subcategory_array){
+      
+    //      console.log("aman",db_subcategory_array);
+    
+          if (err) res.json({message: 'There are no posts here.'});
+    
+           ProdModel.find({})
+           .populate('_procategory _prosubcategory')
+        
+            .exec(function(err, db_subcategory_array) {
+    
+               console.log("neema",db_subcategory_array);
+           
+              res.render("products/displayprod", { user_array: db_subcategory_array });
+           })
+        });
 
 });
 router.get('/deleteprod/:id', function(req, res, next) {
@@ -891,6 +924,12 @@ router.get('/logoutadmin', function (req, res) {
   req.session.destroy();
   res.redirect("/adminlogin");
 });
+router.get('/logoutuser', function (req, res) {
+
+  req.session.destroy();
+  res.redirect("/loginad");
+});
+
 
 router.get('/change-adminpassword', function (req, res, next) {
 
@@ -1155,8 +1194,27 @@ router.get('/showcat/:id', function(req, res, next) {
     if(err){
       console.log("Error in Edit" + err)
     }else{
-      console.log(data);
-      res.render('showcat',{mydata:data})
+      console.log("aman",data);
+      
+      console.log("amanneema",data.prod_name);
+      const mybodydata = {
+        cart_name : data.prod_name,
+        cart_price : data.prod_price,
+        cart_qty:data.prod_qty,
+        cart_image:data.prod_image,
+        
+      }
+      var data = CartModel(mybodydata);
+    
+      data.save(function(err){
+        if(err){
+          console.log("Error in Add Record" + err);
+        }else{
+          console.log("Record Added");
+          
+        }
+      })
+      res.render('showcat',{mydata:mybodydata})
     }
   }).lean();
 
@@ -1302,9 +1360,17 @@ router.get('/editsub/:id', function(req, res) {
       if (err) {
           console.log("Edit Fetch Error " + err);
       } else {
-          console.log(db_subcategory_array);
-
-          res.render('subcategory/editsub', { subcategory_array: db_subcategory_array });
+          console.log("neema",db_subcategory_array);
+          
+          SubcatModel.find({})
+          .populate('_category')
+        
+            .exec(function(err, db_subcategory_array) {
+    
+              console.log("neema",db_subcategory_array);
+           
+              res.render("subcategory/editsub", { subcategory_array: db_subcategory_array });
+            })
       }
   });
 });
@@ -1570,5 +1636,29 @@ router.get('/displaysubcat', function(req, res, next) {
         })
     });
  
+});
+
+router.post('/gocart', function(req, res, next) {
+  
+  console.log("File Send Success")
+  const mybodydata = {
+    cart_name : req.body.pnm,
+    cart_price:req.body.ppr,
+    cart_image:req.body.pqt,
+    cart_qty:req.body.pqt,
+    cart_amount:req.body,
+  }
+  
+  var data = CartModel(mybodydata);
+
+  data.save(function(err){
+    if(err){
+      console.log("Error in Add Record" + err);
+    }else{
+      console.log("Record Added");
+      res.send("Record Successfully Added")
+    }
+  })
+  
 });
 module.exports = router;
