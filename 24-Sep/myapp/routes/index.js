@@ -1332,7 +1332,7 @@ router.get('/displaysub', function(req, res, next) {
     
         .exec(function(err, db_subcategory_array) {
 
-          console.log(db_subcategory_array);
+          console.log("neema",db_subcategory_array);
        
           res.render("subcategory/displaysub", { subcategory_array: db_subcategory_array });
         })
@@ -1354,24 +1354,18 @@ router.get('/deletesub/:id', function(req, res) {
 });
 router.get('/editsub/:id', function(req, res) {
 
-  console.log(req.params.id);
-  
-  SubcatModel.findById(req.params.id, function(err, db_subcategory_array) {
-      if (err) {
-          console.log("Edit Fetch Error " + err);
-      } else {
-          console.log("neema",db_subcategory_array);
-          
-          SubcatModel.find({})
-          .populate('_category')
+  var editid=req.params.id;
+  CatModel.find(function(err,cdata){
+  SubcatModel.findById(editid,function(err,data){
+    if(err){
+      console.log("Error in Edit" + err)
+    }else{
+      console.log("am",data);
+      
         
-            .exec(function(err, db_subcategory_array) {
-    
-              console.log("neema",db_subcategory_array);
-           
-              res.render("subcategory/editsub", { subcategory_array: db_subcategory_array });
-            })
-      }
+          res.render('subcategory/editsub',{mydata:data,mydata1:cdata})
+        }
+      }).lean();
   });
 });
 router.post('/editsub/:id', function(req, res) {
@@ -1661,4 +1655,46 @@ router.post('/gocart', function(req, res, next) {
   })
   
 });
+
+router.get('/gocartdis', function (req, res, next) {
+
+    CartModel.find(function (err, db_users_array) {
+      if (err) {
+        console.log("Error in Fetch Data " + err);
+      } else {
+        //Print Data in Console
+        console.log("aman",db_users_array);
+        //Render User Array in HTML Table
+        res.render('gocartdis', { user_array: db_users_array });
+  
+      }
+    }).lean();
+  
+  });
+  router.get('/deletecart/:id', function(req, res, next) {
+    var deleteid = req.params.id;
+    CartModel.findByIdAndDelete(deleteid,function(err,data){
+      if(err)
+      {
+        console.log("Error in Delete " + err);
+      }else{
+        console.log("Record Deleted " + deleteid);
+        res.redirect('/gocartdis');
+      }
+    })
+    
+  });
+
+  router.get('/placeorder/:id', function(req, res, next) {
+    var editid = req.params.id;
+    CartModel.findById(editid,function(err,data){
+      if(err){
+        console.log("Error in Edit" + err)
+      }else{
+        console.log(data);
+        res.render('placeorder',{mydata:data})
+      }
+    }).lean();
+  });
+  
 module.exports = router;
