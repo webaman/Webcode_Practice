@@ -6,4 +6,4 @@ var myschema = new Schema({
     chat_date : {type: Date, default: Date.now},
 });
 
-module.exports = mongoose.model('chats',myschema);
+module.exports = mongoose.model('chatweb',myschema);

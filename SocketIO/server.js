@@ -1,48 +1,71 @@
-const app = require('express')();
-const http = require('http').Server(app);
-var ChatModel=require('./model/admin')
-const io = require('socket.io')(http);
-const port = process.env.PORT || 4000;
 var mongoose=require('mongoose')
+const client = require('socket.io').listen(4000).sockets;
+
+// Connect to mongo
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://mydata:mydb%4011@localhost:27017/mydata')
-.then(()=>console.log("Connection Established"))
-.catch(()=>console.log("Error"))
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+mongoose.connect('mongodb://mydata:mydb%4011@localhost:27017/mydata',function(err,db){
+// .then(()=>console.log("Connection Established"))
+// .catch(()=>console.log("Error"))
+if(err)
+{
+  throw err;
+}
+    console.log('MongoDB connected...');
 
-io.on('connection', (socket) => {
-  socket.on('chat message', msg => {
-    const mybodydata = {
-        chat_msg : msg,
-        
-      }
-      var data = ChatModel(mybodydata);
-    
-      data.save(function(err){
-        if(err){
-          console.log("Error in Add Record" + err);
-        }else{
-          console.log("Record Added");
-          io.emit('chat message', msg);
+    // Connect to Socket.io
+    client.on('connection', function(socket){
+        let chat = db.collection('chatweb');
+
+        // Create function to send status
+        sendStatus = function(s){
+            socket.emit('status', s);
         }
-      })
-   
-  });
-});
-app.get('/display', function(req, res, next) {
-    ChatModel.find(function(err,data){
-      if(err){
-        console.log("Error in Fetch Data" + err);
-      }else{
-          
-        //console.log("Record Data is " + data);
-        res.render('display',{mydata:data});
-      }
-    }).lean();
-  });
 
-http.listen(port, () => {
-  console.log(`Socket.IO server running at http://localhost:${port}/`);
-});
+        // Get chats from mongo collection
+        chat.find().limit(100).sort({_id:-1}).toArray(function(err, res){
+            if(err){
+                throw err;
+            }
+
+            // Emit the messages
+            socket.emit('output', res);
+        });
+
+        // Handle input events
+        socket.on('input', function(data){
+            var d = new Date();
+            var n = d.toTimeString();
+
+
+        
+            let name = data.name;
+            let message = data.message;
+              let date=n;  
+            if(name == '' || message == ''){
+                // Send error status
+                sendStatus('Please enter a name and message');
+            } else {
+                // Insert message
+                chat.insert({name: name, message: message,Date:date }, function(){
+                    client.emit('output', [data]);
+                    
+
+                    // Send status object
+                    sendStatus({
+                        message: 'Message sent',
+                        clear: true
+                    });
+                });
+            }
+        });
+
+        // Handle clear
+        socket.on('clear', function(data){
+            // Remove all chats from collection
+            chat.remove({}, function(){
+                // Emit cleared
+                socket.emit('cleared');
+            });
+        });
+    });
+  });
