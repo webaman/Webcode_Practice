@@ -247,7 +247,7 @@
               
             </ul>
             <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active ">
+            <a href="#" class="nav-link  ">
               <i class="nav-icon fas fa-edit"></i>  
               <p>
                 Products
@@ -262,7 +262,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/products/display" class="nav-link active">
+                <a href="/admin/products/display" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                  <p>Display Products</p>
                 </a>
@@ -349,8 +349,9 @@
               
         </ul>
         </li>
+        
          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>  
               <p>
                 User
@@ -365,7 +366,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/user/display" class="nav-link">
+                <a href="/admin/user/display" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                  <p>Display User </p>
                 </a>
@@ -386,12 +387,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 >Products Registration</h1>
+            <h1 >Display User</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Login Form</li>
+              <li class="breadcrumb-item active">Display User</li>
             </ol>
           </div>
         </div>
@@ -406,7 +407,7 @@
         <div class="row mt-4">
           <div class="mx-auto card rounded" style="width: 100rem;">
             <div class="card-header">
-              <h3 class="card-title">Display Products</h3>
+              <h3 class="card-title">Display User</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -433,15 +434,17 @@
       {{#each user_array}}
     <tr>
      <td class="counterCell"></td>
-      <td>{{prod_name}}</td>
-      <td>{{prod_details}}</td>
-      <td>{{prod_price}}</td>
-    <td>{{prod_qty}}</td>
-    <td>{{_procategory.cat_name}}</td>
-    <td>{{_prosubcategory.sub_category_name}}</td>
-    <td><img src="/images/{{prod_image}}" style="height: 100px;"></td>
-    <td><a href="/admin/products/edit/{{_id}}">Edit</a> |
-    <a href="/admin/products/delete/{{_id}}" onclick="return confirm('Are you sure?')">Delete</a>
+      <td>{{user_name}}</td>
+      <td>{{user_email}}</td>
+      <td>{{user_pass}}</td>
+    <td>{{user_dob}}</td>
+    <td>{{user_gender}}</td>
+    
+    <td>{{_citycat.city_name}}</td>
+    <td>{{_statecat.st_name}}</td>
+    <td><img src="/images/{{user_image}}" style="height: 100px;"></td>
+    <td><a href="/admin/user/edit/{{_id}}">Edit</a> |
+    <a href="/admin/user/delete/{{_id}}" onclick="return confirm('Are you sure?')">Delete</a>
     </td>
     
     </tr>

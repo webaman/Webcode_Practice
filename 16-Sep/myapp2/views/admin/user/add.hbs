@@ -202,7 +202,7 @@
           
           
          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-edit"></i>  
               <p>
                 Category
@@ -211,7 +211,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/category/add" class="nav-link active">
+                <a href="/admin/category/add" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Category</p>
                 </a>
@@ -354,7 +354,7 @@
         </ul>
         </li>
          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>  
               <p>
                 User
@@ -363,7 +363,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/user/add" class="nav-link">
+                <a href="/admin/user/add" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add User</p>
                 </a>
@@ -413,12 +413,12 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="/signad-process">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
               <div class="card-body">
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Username</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="fnm" id="inputEmail3" placeholder="FirstName">
+                    <input type="text" class="form-control" name="uname" id="inputEmail3" placeholder="Username">
                   </div>
                 </div>
               
@@ -431,7 +431,7 @@
                 <div class="form-group row mt-4">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Password</label>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control" name="pas" id="inputEmail3" placeholder="Password">
+                    <input type="password" class="form-control" name="pass" id="inputEmail3" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
@@ -467,29 +467,29 @@
                 <div class="form-group row mt-4">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">City</label>
                   <div class="col-sm-6">
-                  <select class="form-control select2" data-placeholder="Select City" style="width: 100%;" name="cty">
-                    <option selected="selected">Indore</option>
-                    <option>Ujjain</option>
-                    <option>Ahemdabad</option>
-                    <option>Bhopal</option>
-                    <option>Surat</option>
-                    <option>Mumbai</option>
-                    <option>Pune</option>
-                  </select>
+                   <select class="form-group" aria-label="Default select example" name="_citycat" style="width: 290px; height:40px" >
+  
+   {{#each mydata}}
+                        
+                            <option value='{{_id}}'>{{city_name}}</option>
+                           
+                           {{/each}}
+  
+</select>
                 </div>
                 </div>
                 <div class="form-group row mt-4">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">State</label>
                   <div class="col-sm-6">
-                  <select class="form-control select2" data-placeholder="Select State" style="width: 100%;" name="ste">
-                    <option selected="selected">Madhya Pradesh</option>
-                    <option>Maharastra</option>
-                    <option>Gujarat</option>
-                    <option>Uttar Pradesh</option>
-                    <option>Delhi</option>
-                    <option>Haryana</option>
-                    <option>Punjab</option>
-                  </select>
+                   <select class="form-select" aria-label="Default select example" name="_statecat" style="width: 290px; height:40px" >
+  
+   {{#each mycountry}}
+                        
+                            <option value='{{_id}}'>{{st_name}}</option>
+                           
+                           {{/each}}
+  
+</select>
                 </div>
                 </div>
                 
