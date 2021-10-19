@@ -98,7 +98,52 @@ router.get('/add', function(req, res, next) {
     })
     
   });
-  router.get('/edit', function(req, res, next) {
-    res.render('admin/products/edit', { title: 'Express' });
+  
+  router.get('/edit/:id', function(req, res, next) {
+    var editid = req.params.id;
+    CatModel.find(function(err,cdata){
+    SubcatModel.find(function(err,sdata){
+    ProdModel.findById(editid,function(err,data){
+      if(err){
+        console.log("Error in Edit" + err)
+      }else{
+        console.log(data);
+        res.render('admin/products/edit',{mydata:data , mysub :sdata,mycategory:cdata})
+      }
+    }).lean();
+  
+  });
+  });
+  });
+  
+  router.post('/edit/:id', function(req, res, next) {
+  
+    var myfile = req.files.file;
+  var myfilename = req.files.file.name;
+  myfile.mv('public/admin/'+myfilename, function(err) {
+    if (err)
+    throw err;
+    //res.send('File uploaded!');
+    });
+  
+    var editid = req.params.id;
+    const prodata = {
+      Product: req.body.productname,
+      Productdetail: req.body.productdetail,
+      Price:req.body.productprice,
+      Image: myfilename,
+      _category: req.body._category,
+      _subcategory: req.body._subcategory
+        }
+    productModel.findByIdAndUpdate(editid,prodata,function(err,data){
+      if(err){
+        console.log("Error in Edit" + err)
+      }else{
+        console.log( "Record Updated" +  data);
+  
+    res.redirect('/admin/products/display');
+  }
+    }).lean();
+  
   });
 module.exports = router;

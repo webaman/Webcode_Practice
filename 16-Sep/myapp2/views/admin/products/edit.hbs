@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../stylesheets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../../stylesheets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../stylesheets/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../../stylesheets/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -143,7 +143,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../../dist/img/AdminLTELogo.png"
+      <img src="../../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
@@ -155,7 +155,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Aman Neema</a>
@@ -406,12 +406,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 >Products Registration</h1>
+            <h1 >Edit Products</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Login Form</li>
+              <li class="breadcrumb-item active">Edit Product</li>
             </ol>
           </div>
         </div>
@@ -435,25 +435,25 @@
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Product Name</label>
                   <div class="col-sm-6">
-                    <input type="text" name="pnm" class="form-control" id="inputEmail3" placeholder="Enter Product Name">
+                    <input type="text" name="pnm" class="form-control" id="inputEmail3" placeholder="Enter Product Name" value="{{mydata.prod_name}}">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Product Details</label>
                   <div class="col-sm-6">
-                    <input type="text" name="pdt" class="form-control" id="inputEmail3" placeholder="Enter Product Details">
+                    <input type="text" name="pdt" class="form-control" id="inputEmail3" placeholder="Enter Product Details" value="{{mydata.prod_details}}">
                   </div>
                 </div>
                  <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Product Price</label>
                   <div class="col-sm-6">
-                    <input type="number" name="ppr" class="form-control" id="inputEmail3" placeholder="Enter Product Price">
+                    <input type="number" name="ppr" class="form-control" id="inputEmail3" placeholder="Enter Product Price" value="{{mydata.prod_price}}">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Product Qty</label>
                   <div class="col-sm-6">
-                    <input type="number" class="form-control" name="pqt" id="inputEmail3" placeholder="Enter Product Quantity">
+                    <input type="number" class="form-control" name="pqt" id="inputEmail3" placeholder="Enter Product Quantity" value="{{mydata.prod_qty}}">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
@@ -467,7 +467,7 @@
                   <div class="col-sm-6">
                       <select class="form-select" aria-label="Default select example" name="_procategory" >
   
-   {{#each mydata}}
+   {{#each mycategory}}
                         
                             <option value='{{_id}}'>{{cat_name}}</option>
                            
@@ -481,7 +481,7 @@
                   <div class="col-sm-6">
                       <select class="form-select" aria-label="Default select example" name="_prosubcategory" >
   
-   {{#each mysubcat}}
+   {{#each mysub}}
                         
                             <option value='{{_id}}'>{{sub_category_name}}</option>
                            
@@ -533,15 +533,15 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../stylesheets/plugins/jquery/jquery.min.js"></script>
+<script src="../../../stylesheets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../stylesheets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../stylesheets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- bs-custom-file-input -->
-<script src="../../stylesheets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script src="../../../stylesheets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script src="../../../dist/js/demo.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
   bsCustomFileInput.init();

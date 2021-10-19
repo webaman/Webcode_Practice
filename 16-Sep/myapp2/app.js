@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var mongoose=require('mongoose')
+
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fileUpload = require('express-fileupload');
@@ -16,6 +17,7 @@ var CategoryRouter = require('./routes/category');
 var SubCategoryRouter = require('./routes/subcategory');
 var AreaRouter = require('./routes/area');
 var UserRouter = require('./routes/user');
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://mydata:mydb%4011@localhost:27017/mydata')
 .then(()=>console.log("Connection Established"))
@@ -24,7 +26,9 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
