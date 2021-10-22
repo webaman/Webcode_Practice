@@ -1,6 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      p
+{
+  color: red;
+}
+.error
+{
+  color: red;
+}
+    </style>
+    
+    <script src="../../javascripts/jquery.min.js"></script>
+<script src="../../javascripts/jquery.validate.min.js"></script>
+  <script>
+    $(document).ready(function()
+    {
+      var errors = {{{stringify errors}}};
+       console.log("am",errors)
+      if(errors.errors)
+      {
+        
+        for(let err of errors.errors)
+        $( "<p>"+err.msg+"</p>" ).insertAfter('input[name="'+err.param+'"]');
+      }
+    })
+  
+</script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +42,7 @@
       
    <section class="content">
       <div class="container-fluid">
-        {{#if errors }}
-              {{#each errors }}
-                <p class="alert alert-danger">{{ this.msg }}</p>
-              {{/each}}
-            {{/if}}
+       
         <div class="row mt-4">
           <div class="mx-auto card" style="width: 35rem; ">
             <div class="card-header">
@@ -27,26 +50,39 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post" action="/form-process">
+            <form class="form-horizontal" method="post" action="/register-process" id="frm"> 
               <div class="card-body">
                   <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Name</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="Name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="email" placeholder="Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
                   <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control" id="inputPassword3" name="pass" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                   </div>
                 </div>
+                <div class="form-group row mt-4">
+                  <label for="inputPassword3" class="col-sm-3 col-form-label">Age</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputPassword3" class="col-sm-3 col-form-label">Mobile</label>
+                  <div class="col-sm-6">
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile">
+                  </div>
+                </div>
+               
                 <div class="form-group row mt-4">
                   <div class="offset-sm-2 col-sm-10">
                     
@@ -80,7 +116,7 @@
     </section>
 
     <!-- Optional JavaScript; choose one of the two! -->
-
+<script src="../../javascripts/jquery.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

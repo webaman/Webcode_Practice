@@ -17,10 +17,14 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({
 defaultLayout: false,
-handlebars: allowInsecurePrototypeAccess(_handlebars)
+handlebars: allowInsecurePrototypeAccess(_handlebars),
 }));
 
 app.set('view engine', 'handlebars');
+
+  _handlebars.registerHelper("stringify", function(object){
+    return JSON.stringify(object);
+  });
 
 app.use(logger('dev'));
 app.use(express.json());

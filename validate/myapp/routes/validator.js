@@ -15,7 +15,7 @@ validatePAN : check('pc').notEmpty().withMessage('Not Empty')
 	.matches('[A-Z]{5}[0-9]{4}[A-Z]{1}').withMessage('PAN invalid ')
 	// Custom message
 ,
-validateIMN : check('mno').isNumeric().withMessage('Mobile No Must contain only digit').isLength({ min: 10, max: 10 }).withMessage('Mobile No Must contain 10 digit')
+validateIMN : check('mno').isNumeric().withMessage('Mobile No Must contain only digit').isLength({ min: 10, max: 10 }).withMessage('Mobile No Must contain 10 digit').matches('^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$').withMessage('Mobile No. is Invalid ')
     
 
     
