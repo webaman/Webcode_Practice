@@ -91,25 +91,34 @@ router.post('/login', function(req, res, next) {
 
   console.log(req.body);
   AdminData.findOne({ "email": email }, function (err, user) {
-    var md = forge.md.sha512.create();
-md.update(user.password);
-const pass=md.digest().toHex()
+    var md = forge.md.sha512.create().update(password).digest().toHex();  
     if(!user){
       return res.end("Email or password are not valid"); 
     }
-    if(pass !== password){
+    if(user.password !== md){
       
       return res.end("Email or password are not valid"); 
     }
+    console.log("neema",md)
+    
     return res.send(`Welcome ${user.name}`)
   });
     }
 });
-router.get('/validateEmail', function(req, res, next) {
-  const email=req.query.email;
-  
-  AdminData.findOne({ "email": email }, function (err, user) {
+router.get('/validate/:type', function(req, res, next) {
+  let condition={
+
+    "email":req.query.email
+  }
+
+  if(req.params.type==='mobile')
+  {
+    condition={
+     "mobile":req.query.mobile
+    }
+  }
  
+  AdminData.findOne(condition, function (err, user) {
     if(user)
     {
       return res.send(false)
@@ -119,19 +128,19 @@ router.get('/validateEmail', function(req, res, next) {
     
 });
 
-router.get('/validateMobile', function(req, res, next) {
-  const mobile=req.query.mobile;
+// router.get('/validateMobile', function(req, res, next) {
+//   const mobile=req.query.mobile;
   
-  AdminData.findOne({ "mobile": mobile }, function (err, data) {
+//   AdminData.findOne({ "mobile": mobile }, function (err, data) {
  
-    if(data)
-    {
-      return res.send(false)
-    }
-    return res.send(true)
-  });
+//     if(data)
+//     {
+//       return res.send(false)
+//     }
+//     return res.send(true)
+//   });
     
-});
+// });
 
 router.post('/login-process',[
   check('email', 'Email length should be 10 to 30 characters').isEmail().isLength({ min: 10 }),
@@ -228,6 +237,9 @@ router.get('/form', function (req, res) {
       errors: req.session.errors
   });
 
+});
+router.get('/profile', function(req, res, next) {
+  res.render('admin/profile', { title: 'Express' });
 });
 module.exports = router;
 

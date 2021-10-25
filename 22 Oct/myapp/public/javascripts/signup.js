@@ -5,7 +5,8 @@ $(document).ready(function()
 				name: "required",
 				password: {
 					required: true,
-					minlength: 5
+					minlength: 5,
+					strong_password:true
 				},
 				cpassword: {
 					required: true,
@@ -18,7 +19,7 @@ $(document).ready(function()
                  minlength:10,
 				 maxlength:10,
 				 remote: {
-					url: "/validateMobile",
+					url: "/validate/mobile",
 				},
 				
                 },
@@ -33,13 +34,21 @@ $(document).ready(function()
 					required: true,
 					email: true,
 					remote: {
-						url: "/validateEmail",
-					
+						url: "/validate/email",
 						
+						// data: {
+						// 	name: function() {
+						// 	  return $( "#name" ).val();
+						// 	}
+						//   }
+						  
 					},
 				},
 				// agree: "required"
 			},
+			type: {
+                required: true
+            },
 			messages: {
 				name: "Please enter the Name",
 			
@@ -76,5 +85,30 @@ $(document).ready(function()
 			}
                 });
                 
+				$.validator.addMethod("strong_password", function (value, element) {
+					let password = value;
+					if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%&])(.{8,20}$)/.test(password))) {
+						return false;
+					}
+					return true;
+				}, function (value, element) {
+					let password = $(element).val();
+					if (!(/^(.{4,20}$)/.test(password))) {
+						return 'Password must be between 4 and 20 characters long.';
+					}
+					else if (!(/^(?=.*[A-Z])/.test(password))) {
+						return 'Password must contain atleast one uppercase.';
+					}
+					else if (!(/^(?=.*[a-z])/.test(password))) {
+						return 'Password must contain atleast one lowercase.';
+					}
+					else if (!(/^(?=.*[0-9])/.test(password))) {
+						return 'Password must contain atleast one digit.';
+					}
+					else if (!(/^(?=.*[@#$%&])/.test(password))) {
+						return "Password must contain special characters from @#$%&.";
+					}
+					return false;
+				});
             
             })
