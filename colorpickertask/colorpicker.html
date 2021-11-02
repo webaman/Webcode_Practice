@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Color</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $("#myBtn").click(function(){
+        var str = $("#myInput").val();
+     console.log(str)
+     $("<div>").css({"background-color": str, "height": "50px" , "width": "50px" , "margin": "5px"}).insertBefore("p");  
+   
+  });
+  $("#myBtn1").click(function(){  
+    var str1 = $("#changecolor").val();
+    var str2 = $("#myInput").val();
+        $( "body" ).find( "div" ).eq( str1-1 ).css( "background" , str2 );
+    
+  });
+});
+</script>
+</head>
+<body>
+    <input type="text" id="changecolor"/><br>
+    <input type="color" id="myInput">
+   
+    <button type="button" id="myBtn">Add</button>
+    <button type="button" id="myBtn1">Change</button>
+   <p></p>
+</body>
+</html>

@@ -1,4 +1,5 @@
-var createError = require('http-errors');
+"use strict";
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -17,9 +18,9 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://mydata:mydb%4011@localhost:27017/mydata')
 .then(()=>console.log("Connection Established"))
-.catch(()=>console.log("Error"))
+.catch(()=>console.log("Error"))  
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,14 +31,40 @@ handlebars: allowInsecurePrototypeAccess(_handlebars),
 "helpers":helpers
 
 }));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 600000 }
+}))
 
 
 app.set('view engine', 'handlebars');
 const hbs = exphbs.create({});
 
-hbs.handlebars.registerHelper("stringify", function(data){
+_handlebars.registerHelper("stringify", function(data){
   return JSON.stringify(data);
 });
+
+_handlebars.registerHelper('ifIn', function(value,array,options) {
+  
+  console.log("am",value)
+  console.log("ne",array)
+
+  if(Array.isArray(array)&& (array.length!==0) && value!==0)
+  {
+    if(array.includes(value)){
+      return options.fn(this)
+  }  
+ }
+  return options.inverse(this) 
+    
+
+ 
+
+});
+
+
 
 app.use(logger('dev'));
 app.use(express.json());

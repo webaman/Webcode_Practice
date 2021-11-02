@@ -1,27 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | General Form Elements</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+     
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+      
+   <style>
+      p
+{
+  color: red;
+}
+.error
+{
+  color: red;
+}
+    </style>
+    
+    <script src="../../javascripts/plugins/jquery.min.js"></script>
+<script src="../../javascripts/plugins/jquery.validate.min.js"></script>
+  <script>
+    $(document).ready(function()
+    {
+      var errors = {{{stringify errors}}};
+       console.log("am",errors)
+      if(errors.errors)
+      {
+        
+        for(let err of errors.errors)
+        $( "<p>"+err.msg+"</p>" ).insertAfter('input[name="'+err.param+'"]');
+      }
+    })
+  
+</script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -41,49 +76,184 @@
     </form>
 
     <!-- Right navbar links -->
-    
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header"></span>
+          <div class="dropdown-divider"></div>
+          <a href="/profile/{{myid}}" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> Profile
+            
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="/admin/change-password" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> Change Password
+            
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="/logout" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> Logout
+           
+          </a>
+          
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
   </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  
-
-
-    <!-- Main content -->
-    <section class="content">
+   <section class="content">
       <div class="container-fluid">
-        
+       
         <div class="row mt-4">
           <div class="mx-auto card" style="width: 35rem; ">
             <div class="card-header">
-              <h3 class="card-title">Signup Form</h3>
+              <h3 class="card-title">Profile Page</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" > 
               <div class="card-body">
                   <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-3 col-form-label">Address</label>
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Firstname</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="anm" placeholder="Address" value="{{mydata.admin_name}}">
-                  </div>
-                </div>
-               <div class="form-group row mt-4">
-                  <label for="inputEmail3" class="col-sm-3 col-form-label">City</label>
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="anm" placeholder="City" value="{{mydata.admin_name}}">
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="FirstName" value="{{userdata.firstName}}">
                   </div>
                 </div>
                  <div class="form-group row mt-4">
-                  <label for="inputEmail3" class="col-sm-3 col-form-label">State</label>
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Lastname</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="anm" placeholder="State" value="{{mydata.admin_name}}">
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="LastName" value="{{userdata.lastName}}">
                   </div>
                 </div>
-                 <div class="form-group row mt-4">
-                  <label for="inputEmail3" class="col-sm-3 col-form-label">Zip</label>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Email</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputEmail3" name="anm" placeholder="Zip" value="{{mydata.admin_name}}">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{userdata.email}}">
+                  </div>
+                </div>
+              
+                    <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Gender</label>
+                  <div class="col-sm-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="Male" value="{{userdata.gender}}" {{#compare userdata.gender "==" "Male"}}checked{{else}}{{/compare}} >
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="Female" value="{{userdata.gender}}" {{#compare userdata.gender "==" "Female"}}checked{{else}}{{/compare}} >
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                  </label>
+                </div>
+                </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputPassword3" class="col-sm-4 col-form-label">Mobile</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="{{userdata.mobile}}">
+                  </div>
+                </div>
+                <div class="form-group row mt-4">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Hobbies</label>
+                  <div class="col-sm-6">
+                  <select class="select2" id="hobbies" multiple="multiple" data-placeholder="Select Hobbies" style="width: 100%;" name="hobbies">
+                    {{#each hobby}}
+                    {{!-- <option value="{{@key}}" {{#filter  ../userdata.hobbies @key}}selected{{/filter}}>{{this}}</option> --}}
+                    <option value="{{@key}}" {{#ifIn @key ../userdata.hobbies}} selected{{/ifIn}}>{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+               <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">Address</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Address" value="{{userdata.address.line1}}">
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">City</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{{userdata.address.city}}">
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">State</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="state" name="state" placeholder="State" value="{{userdata.address.state}}">
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-4 col-form-label">ZIP</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="zip" name="zip" placeholder="ZIP" value="{{userdata.address.zip}}">
                   </div>
                 </div>
                 <div class="form-group row mt-4">
@@ -94,7 +264,15 @@
               </div>
               <!-- /.card-body -->
               
-              
+              <div class="card-footer ">
+                <p class="text-center">
+                <input type="submit" class="btn btn-primary" value="Submit">
+              </p>
+              </div>
+            
+              <!-- /.card-footer -->
+            
+            
             </form>
             
           </div>
@@ -109,33 +287,101 @@
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
- 
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+    <!-- Optional JavaScript; choose one of the two! -->
+<script src="../../javascripts/pagewise/signup.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-<!-- jQuery -->
-<script src="../../stylesheets/plugins/jquery/jquery.min.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  
 <!-- Bootstrap 4 -->
-<script src="../../stylesheets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- bs-custom-file-input -->
-<script src="../../stylesheets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+<!-- Select2 -->
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+    
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
 </script>
-</body>
+  </body>
 </html>

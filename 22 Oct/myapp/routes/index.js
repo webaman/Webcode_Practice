@@ -12,10 +12,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/signup', function(req, res, next) {
-  res.render('admin/signup', { title: 'Express' });
+  let hobby=
+     {
+       cricket:"Cricket",
+       dancing:"Dancing",
+       webseries:"Webseries",
+       football:"Football"
+     }
+  res.render('admin/signup', { myhobby:hobby });
 });
 router.post('/signup',[
-  check('name', 'Name length should be 10 to 20 characters').isLength({ min: 2, max: 20 }).isAlpha('en-US', {ignore: '\s'}).withMessage('Name Must be Alphabetic'),
+  check('firstname', 'Name length should be 2 to 20 characters').isLength({ min: 2, max: 20 }).isAlpha('en-US', {ignore: '\s'}).withMessage('Name Must be Alphabetic'),
+  check('lastname', 'Name length should be 2 to 20 characters').isLength({ min: 2, max: 20 }).isAlpha('en-US', {ignore: '\s'}).withMessage('Name Must be Alphabetic'),
   check('email', 'Email length should be 10 to 30 characters').isEmail().isLength({ min: 10 }).normalizeEmail().custom((value, {req, loc, path}) => {
     return AdminData.findOne({email: req.query.email}).then(user => {
       console.log("aman",user);
@@ -55,10 +63,14 @@ router.post('/signup',[
 md.update(req.body.password);
 const pass=md.digest().toHex()
       const mybodydata = {
-        name : req.body.name,
+        firstName : req.body.firstname,
+        lastName: req.body.lastname,
         email : req.body.email,
         password:pass,
+        gender:req.body.gender,
         mobile:req.body.mobile,
+        hobbies:req.body.hobbies
+        
       }
       const data = AdminData(mybodydata);
     
@@ -67,10 +79,9 @@ const pass=md.digest().toHex()
           console.log("Error in Add Record" + err);
         }else{
           
-          res.send("Record Successfully Added")
+          res.redirect('/login')
         }
       })
-
       
     }
 });
@@ -78,7 +89,7 @@ const pass=md.digest().toHex()
 router.get('/login', function(req, res, next) {
   res.render('admin/login', { title: 'Express' });
 });
-router.post('/login', function(req, res, next) {
+router.post('/login', async function(req, res, next) {
   
   const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -86,24 +97,40 @@ router.post('/login', function(req, res, next) {
     }
     else
     {
-      var email = req.body.email;
-  var password = req.body.password;
+      
+ 
 
-  console.log(req.body);
-  AdminData.findOne({ "email": email }, function (err, user) {
-    var md = forge.md.sha512.create().update(password).digest().toHex();  
+  try 
+  { 
+    var password=req.body.password
+
+    console.log(req.body);
+    const user = await AdminData.findOne({
+      $or: [
+        { 'email': req.body.emailorphone },
+        { 'mobile': req.body.emailorphone }
+      ]
+    })
+    var encryptpassword = forge.md.sha512.create().update(password).digest().toHex();  
     if(!user){
       return res.end("Email or password are not valid"); 
     }
-    if(user.password !== md){
+    if(user.password !== encryptpassword){
       
       return res.end("Email or password are not valid"); 
     }
-    console.log("neema",md)
-    
-    return res.send(`Welcome ${user.name}`)
-  });
-    }
+   
+    req.session.email = user.email;
+    req.session.userid=user._id
+    console.log("nnmm",req.session.userid)
+    res.redirect('/dashboard')
+  }
+  catch(err)
+  {
+    console.log("error hai")
+  res.send(err)
+  }
+}
 });
 router.get('/validate/:type', function(req, res, next) {
   let condition={
@@ -215,7 +242,7 @@ check('name', 'Name length should be 10 to 20 characters').isLength({ min: 2, ma
         password:req.body.password,
         age:req.body.age,
         mobile:req.body.mobile,
-        address:req.body.add
+       
       }
       const data = RegisterData(mybodydata);
     
@@ -238,8 +265,89 @@ router.get('/form', function (req, res) {
   });
 
 });
-router.get('/profile', function(req, res, next) {
-  res.render('admin/profile', { title: 'Express' });
+
+router.get('/dashboard', function(req, res, next) {
+
+  var myemail=req.session.email
+  var myid=req.session.userid
+  console.log('req.session', req.session.userid);
+
+  //Auth
+  if (!myemail) {
+    console.log("Email Session is Set");
+    return res.redirect('/login')
+  }
+  return res.render('admin/dashboard', {myid:myid});
 });
+
+// router.get('/profile/:id', function(req, res, next) {
+//   var editid = req.params.id;
+//   AdminData.findById(editid,function(err,data){
+//     if(err){
+//       console.log("Error in Edit" + err)
+//     }else{
+//       console.log("Aman",data);
+//       res.render('admin/profile',{mydata:data})
+//     }
+//   }).lean();
+
+// });
+router.get('/profile/:id', async function(req, res, next) {
+  const editid = req.params.id;
+  try{
+    
+  const data =  await AdminData.findById(editid)
+
+      const hobby=
+      {
+        cricket:"Cricket",
+        dancing:"Dancing",
+        webseries:"Webseries",
+        football:"Football"
+      }
+     
+     return res.render('admin/profile',{userdata:data,hobby:hobby})
+    
+  }
+  catch(err)
+  {
+    console.log("error hai")
+    res.send(err)
+  }
+});
+router.post('/profile/:id', async function(req, res, next) {
+  
+  const editid = req.params.id;
+  const mybodydata = {
+    firstName : req.body.firstname,
+    lastName: req.body.lastname,
+    email : req.body.email,
+    mobile:req.body.mobile,
+    gender:req.body.gender,
+    'address.line1':req.body.address,
+    'address.city':req.body.city,
+    'address.state':req.body.state,
+    'address.zip':req.body.zip,
+    hobbies:req.body.hobbies
+  }
+  await AdminData.findByIdAndUpdate(editid,mybodydata).then((editid,data,err) => {
+    if(err){
+      console.log("Error in Edit" + err)
+    }else{
+      console.log( "Record Updated" +  data);
+
+    return res.redirect('/dashboard')
+    }
+  });
+  
+
+});
+router.get('/logout', function (req, res) {
+
+  req.session.destroy();
+  res.redirect('/login');
+});
+
+
 module.exports = router;
 

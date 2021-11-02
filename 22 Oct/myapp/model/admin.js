@@ -2,17 +2,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var myschema = new Schema({
-    name : String,
+    firstName : String,
+    lastName:String,
     email : String,
     password : String,
+    gender:String,
     mobile:String,
-    address:({
+    address:{
         line1:String,
         city:String,
         state:String,
-        zip:String
+        zip:Number
 
-    })
+    },
+    hobbies:[{
+        type: String
+    }],
 });
 
 module.exports = mongoose.model('admin-data',myschema);
