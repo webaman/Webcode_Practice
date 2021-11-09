@@ -1,23 +1,23 @@
-// var i;
-// var c=0;;
+var i;
+var result=0;
+var n=1234;
 // var arr=[0]
-// var d;
-// for(i=0; i<arr.length; i++)
-// { 
-//     d=arr[i]
-//     c=c*10+d;
-// }
-// sum=c+1;
+var digit;
+while( n ){
+    digit = n % 10  
+    result = (result * 10) + digit  
+    n = n/10|0  
+}  
+
+console.log(result) 
+// console.log(c)
+
+// var num=0
+// let arr = [1,2,9]
+//  num = +arr.join("")
+// var sum=num+1;
+
 // const arrayOfDigits = Array.from(String(sum), Number);
 
-// console.log(arrayOfDigits);   
-
-var num=0
-let arr = [1,2,9]
- num = +arr.join("")
-var sum=num+1;
-
-const arrayOfDigits = Array.from(String(sum), Number);
-
- console.log(arrayOfDigits);
+//  console.log(arrayOfDigits);
 

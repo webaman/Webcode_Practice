@@ -128,7 +128,7 @@
 // {
 // console.log("Element Not Found")
 // }
-const arr = [2,2,2,1,3,3,3]
+const arr = [2,2,2,1,3,3,5]
 const counts = {};
 var flag=0;
 var val=3;

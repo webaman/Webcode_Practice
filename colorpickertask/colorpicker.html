@@ -1,31 +1,46 @@
 <html>
 <head>
 <title>Color</title>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <script>
 $(document).ready(function(){
     
     $("#myBtn").click(function(){
         var str = $("#myInput").val();
      console.log(str)
-     $("<div>").css({"background-color": str, "height": "50px" , "width": "50px" , "margin": "5px"}).insertBefore("p");  
+    $("<div>").css({"background-color": str, "height": "50px" , "width": "50px" , "margin": "5px"}).insertBefore("p")
+        
    
   });
   $("#myBtn1").click(function(){  
-    var str1 = $("#changecolor").val();
-    var str2 = $("#myInput").val();
+    const str1 = $("#changecolor").val();
+    const str2 = $("#myInput").val();
+    if(str1!=0)
         $( "body" ).find( "div" ).eq( str1-1 ).css( "background" , str2 );
     
   });
+  $(document).on("click", "div", function() {
+  var a=$(this).index('div'); 
+  
+  var b=$(this).css("background-color");
+  
+  $( "span" ).text( "Indexing is " + a + " Coloring is " +b);  
+ 
+});
+
 });
 </script>
 </head>
 <body>
     <input type="text" id="changecolor"/><br>
     <input type="color" id="myInput">
-   
+    <h2></h2>
     <button type="button" id="myBtn">Add</button>
     <button type="button" id="myBtn1">Change</button>
    <p></p>
+   <span></span>  
+  
 </body>
 </html>
